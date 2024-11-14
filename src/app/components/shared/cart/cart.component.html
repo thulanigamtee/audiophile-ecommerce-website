@@ -14,7 +14,9 @@
           (buttonEvent)="clearCart()"
         />
       </div>
-      @for(item of cartItems; track $index) {
+      @if(cartItems.length === 0) {
+      <p>Cart is empty</p>
+      } @else { @for(item of cartItems; track $index) {
       <li class="flex items-center justify-between">
         <div class="flex items-center gap-x-3">
           <img
@@ -57,7 +59,7 @@
           />
         </div>
       </li>
-      }
+      } }
       <div class="flex justify-between">
         <p class="uppercase">total</p>
         <p class="text-lg font-bold text-black">
@@ -66,7 +68,11 @@
       </div>
       <app-button
         [label]="'checkout'"
-        [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
+        [disabled]="cartItems.length === 0 ? true : false"
+        [customStyle]="
+          'bg-orange hover:bg-lightOrange text-white w-full hover:text-white'
+        "
+        (buttonEvent)="goToCheckout()"
       />
     </ul>
   </div>
