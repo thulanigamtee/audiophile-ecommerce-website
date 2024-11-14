@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { ProductsComponent } from '../../components/shared/products/products.component';
+import { Product } from '../../models/product.interface';
 
 @Component({
   selector: 'app-earphones',
@@ -9,7 +10,8 @@ import { ProductsComponent } from '../../components/shared/products/products.com
   templateUrl: './earphones.component.html',
 })
 export class EarphonesComponent {
-  earphonesData!: any;
+  earphones: Product[] = [];
+  isLoading: boolean = true;
   private $destroy = new Subject<void>();
 
   constructor(private dataService: DataService) {}
@@ -17,9 +19,12 @@ export class EarphonesComponent {
   getEarphonesData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        this.earphonesData = data.filter(
-          (item: any) => item.category === 'earphones'
-        );
+        setTimeout(() => {
+          this.isLoading = false;
+          this.earphones = data.filter(
+            (product: Product) => product.category === 'earphones'
+          );
+        }, 500);
       },
     });
   }
