@@ -1,10 +1,10 @@
 <section class="mt-24 text-center md:mt-32">
   <h3>you may also like</h3>
   <ul class="flex flex-col mt-8 md:mt-12 gap-y-14 md:flex-row md:gap-x-6">
-    @for(item of items; track $index) {
+    @for(item of otherItems; track $index) {
     <li class="flex flex-col gap-y-6 md:gap-y-8">
       <div class="relative w-full lg:max-w-[350px]">
-        <app-pictures [images]="item.image" />
+        <app-pictures [image]="item.image" />
       </div>
       <div class="flex flex-col items-center gap-y-6 md:gap-y-8">
         <h5>{{ item.name }}</h5>

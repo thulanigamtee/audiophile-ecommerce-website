@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PicturesComponent } from '../../shared/pictures/pictures.component';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { OtherItems } from '../../../models/otherItems.interface';
 
 @Component({
   selector: 'app-other-items',
@@ -8,5 +9,5 @@ import { ButtonComponent } from '../../shared/button/button.component';
   templateUrl: './other-items.component.html',
 })
 export class OtherItemsComponent {
-  @Input() items!: any;
+  @Input() otherItems!: OtherItems[];
 }
