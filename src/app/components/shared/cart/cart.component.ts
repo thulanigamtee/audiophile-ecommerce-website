@@ -7,6 +7,7 @@ import { ButtonComponent } from '../button/button.component';
 import { Router } from '@angular/router';
 import { OutsideClickDirective } from '../../../directives/outside-click.directive';
 import { OverlayService } from '../../../services/overlay.service';
+import { ToastService } from '../../../services/toast.service';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +22,8 @@ export class CartComponent {
   constructor(
     private cartService: CartService,
     private router: Router,
-    private overlayService: OverlayService
+    private overlayService: OverlayService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -56,6 +58,9 @@ export class CartComponent {
     if (item.quantity === 1) {
       this.cartItems = this.cartItems.filter(
         (cartItem) => cartItem.product.slug !== item.product.slug
+      );
+      this.toastService.displayToastMessage(
+        `${item.product.slug} removed from cart`
       );
     } else {
       item.quantity--;
