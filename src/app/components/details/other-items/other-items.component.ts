@@ -9,5 +9,5 @@ import { OtherItems } from '../../../models/otherItems.interface';
   templateUrl: './other-items.component.html',
 })
 export class OtherItemsComponent {
-  @Input() otherItems!: OtherItems[];
+  @Input() otherItems: OtherItems[] = [];
 }
