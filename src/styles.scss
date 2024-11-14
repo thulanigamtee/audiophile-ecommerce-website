@@ -140,5 +140,5 @@ input {
 }
 
 .modal {
-  @include fadeIn(block);
+  @include fadeIn(flex);
 }
