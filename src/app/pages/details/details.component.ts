@@ -8,8 +8,10 @@ import { CommonModule } from '@angular/common';
 import { GalleryComponent } from '../../components/details/gallery/gallery.component';
 import { ProductCardComponent } from '../../components/shared/product-card/product-card.component';
 import { CartService } from '../../services/cart.service';
-import { Product } from '../../models/product.interface';
 import { OtherItemsComponent } from '../../components/details/other-items/other-items.component';
+import { LoaderComponent } from '../../components/shared/loader/loader.component';
+import { ToastService } from '../../services/toast.service';
+import { Product } from '../../models/product.interface';
 
 @Component({
   selector: 'app-details',
@@ -20,18 +22,21 @@ import { OtherItemsComponent } from '../../components/details/other-items/other-
     GalleryComponent,
     OtherItemsComponent,
     ProductCardComponent,
+    LoaderComponent,
   ],
   templateUrl: './details.component.html',
 })
 export class DetailsComponent {
-  productDetails!: any;
+  productDetails: Product[] = [];
   quantity: number = 1;
+  isLoading: boolean = true;
   private destroy$ = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -46,11 +51,16 @@ export class DetailsComponent {
   getProductDetails() {
     this.dataService.data.pipe(takeUntil(this.destroy$)).subscribe({
       next: (data) => {
-        this.dataService.productId$.pipe(takeUntil(this.destroy$)).subscribe({
-          next: (id) => {
-            this.productDetails = data.filter((item: any) => item.slug === id);
-          },
-        });
+        setTimeout(() => {
+          this.isLoading = false;
+          this.dataService.productId$.pipe(takeUntil(this.destroy$)).subscribe({
+            next: (id) => {
+              this.productDetails = data.filter(
+                (product: Product) => product.slug === id
+              );
+            },
+          });
+        }, 500);
       },
     });
   }
@@ -65,6 +75,7 @@ export class DetailsComponent {
 
   addToCart(product: Product) {
     this.cartService.addToCart(product, this.quantity);
+    this.toastService.displayToastMessage(`${product.slug} added to cart`);
   }
 
   ngOnDestroy() {
