@@ -34,7 +34,7 @@ export class AppComponent {
         this.isCheckoutPage(event.urlAfterRedirects);
       }
     });
-    this.overlayService.overlayActive$
+    this.overlayService.overlaySubject$
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (isActive) => {
