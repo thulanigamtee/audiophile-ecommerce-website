@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../../models/cartItem.interface';
 import { Subject, takeUntil } from 'rxjs';
 import { CartService } from '../../../services/cart.service';
 import { ButtonComponent } from '../button/button.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +22,7 @@ export class CartComponent {
     this.isCartActive = !this.isCartActive;
   }
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
     this.cartService.cartSubject$.pipe(takeUntil(this.destroy$)).subscribe({
@@ -50,6 +51,10 @@ export class CartComponent {
 
   clearCart() {
     this.cartService.clearCart();
+  }
+
+  goToCheckout() {
+    this.router.navigate(['/', 'checkout']);
   }
 
   ngOnDestroy() {
