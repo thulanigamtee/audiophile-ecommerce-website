@@ -7,6 +7,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { fadeIn } from './animations/route-animations';
 import { OverlayService } from './services/overlay.service';
 import { Subject, takeUntil } from 'rxjs';
+import { ToastComponent } from './components/shared/toast/toast.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { Subject, takeUntil } from 'rxjs';
     CommonModule,
     OutroComponent,
     FooterComponent,
+    ToastComponent,
   ],
   templateUrl: './app.component.html',
   animations: [fadeIn],
