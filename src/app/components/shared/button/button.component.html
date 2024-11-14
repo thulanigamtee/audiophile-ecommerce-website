@@ -10,7 +10,8 @@
 <button
   (click)="emitButtonEvent()"
   [class]="customStyle"
-  class="uppercase text-[13px] font-bold h-12 tracking-[1px]"
+  [disabled]="disabled"
+  class="uppercase text-[13px] font-bold h-12 tracking-[1px] disabled:cursor-not-allowed"
 >
   <ng-content></ng-content>
   {{ label }}

@@ -12,6 +12,7 @@ export class ButtonComponent {
   @Input() customStyle!: string;
   @Input() isRoute!: boolean;
   @Input() route!: string[];
+  @Input() disabled!: boolean;
 
   @Output() buttonEvent = new EventEmitter();
 
