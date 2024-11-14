@@ -45,10 +45,6 @@ export class AppComponent {
     });
   }
 
-  routeAnimationData(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData;
-  }
-
   setBackgroundClass(url: string): void {
     if (url.includes('details') || url.startsWith('/checkout')) {
       this.backgroundClass = 'details-page-background';
