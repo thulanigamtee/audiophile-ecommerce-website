@@ -2,7 +2,9 @@
   <h6>summary</h6>
   <div class="mt-6">
     <ul class="flex flex-col gap-y-6">
-      @for(item of summaryItems; track $index) {
+      @if(summaryItems.length === 0) {
+      <p>Summary is empty</p>
+      } @else { @for(item of summaryItems; track $index) {
       <li class="flex items-center justify-between">
         <div class="flex items-center gap-x-3">
           <img
@@ -47,7 +49,9 @@
       <app-button
         [label]="'continue & pay'"
         [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
+        (buttonEvent)="showModal()"
       />
+      }
     </ul>
   </div>
 </section>
