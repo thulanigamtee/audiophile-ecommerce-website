@@ -1,6 +1,9 @@
 <main>
   <div class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto mt-4 md:mt-8 lg:mt-20">
     <a class="text-[#979797] capitalize">go back</a>
+    @if(isLoading) {
+    <app-loader />
+    } @else {
     <ul class="mt-4 lg:mt-12">
       @for(product of productDetails; track $index) {
       <li>
@@ -8,7 +11,7 @@
           class="flex flex-col gap-y-5 md:flex-row md:justify-between md:w-full md:items-center"
         >
           <div class="relative md:w-[40%] lg:w-[50%]">
-            <app-pictures [images]="product.image" />
+            <app-pictures [image]="product.image" />
           </div>
           <div
             class="flex flex-col gap-y-6 md:gap-y-8 md:w-[340px] lg:w-[445px]"
@@ -78,14 +81,11 @@
           </div>
         </div>
       </li>
-      <app-gallery
-        [firstItem]="product.gallery.first"
-        [secondItem]="product.gallery.second"
-        [thirdItem]="product.gallery.third"
-      />
-      <app-other-items [items]="product.others" />
+      <app-gallery [gallery]="product.gallery" />
+      <app-other-items [otherItems]="product.otherItems" />
       }
     </ul>
+    }
   </div>
   <app-product-card />
 </main>

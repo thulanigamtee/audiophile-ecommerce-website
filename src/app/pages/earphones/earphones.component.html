@@ -1,3 +1,7 @@
 <main>
-  <app-products [productsData]="earphonesData" [heading]="'earphones'" />
+  <app-products
+    [products]="earphones"
+    [heading]="'earphones'"
+    [isLoading]="isLoading"
+  />
 </main>
