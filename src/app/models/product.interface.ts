@@ -14,10 +14,10 @@ export interface Product {
   price: number;
   description: string;
   features: string[];
-  includedItems: IncludedItems;
+  includes: IncludedItems[];
   cartImage: string;
   gallery: Gallery;
-  otherItems: OtherItems;
+  others: OtherItems[];
 }
 
 interface IncludedItems {
