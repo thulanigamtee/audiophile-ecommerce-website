@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PicturesComponent } from '../../shared/pictures/pictures.component';
+import { Gallery } from '../../../models/gallery.interface';
 
 @Component({
   selector: 'app-gallery',
@@ -7,22 +8,5 @@ import { PicturesComponent } from '../../shared/pictures/pictures.component';
   templateUrl: './gallery.component.html',
 })
 export class GalleryComponent {
-  @Input() firstItem!: {
-    desktop: string;
-    tablet: string;
-    mobile: string;
-    default: string;
-  };
-  @Input() secondItem!: {
-    desktop: string;
-    tablet: string;
-    mobile: string;
-    default: string;
-  };
-  @Input() thirdItem!: {
-    desktop: string;
-    tablet: string;
-    mobile: string;
-    default: string;
-  };
+  @Input() gallery!: Gallery;
 }
