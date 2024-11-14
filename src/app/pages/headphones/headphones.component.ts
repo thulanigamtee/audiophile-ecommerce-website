@@ -3,6 +3,7 @@ import { ProductsComponent } from '../../components/shared/products/products.com
 import { DataService } from '../../services/data.service';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product.interface';
 
 @Component({
   selector: 'app-headphones',
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './headphones.component.html',
 })
 export class HeadphonesComponent implements OnInit, OnDestroy {
-  headphonesData!: any;
+  headphones: Product[] = [];
+  isLoading: boolean = true;
   private $destroy = new Subject<void>();
 
   constructor(private dataService: DataService) {}
@@ -18,9 +20,12 @@ export class HeadphonesComponent implements OnInit, OnDestroy {
   getHeadphonesData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        this.headphonesData = data.filter(
-          (item: any) => item.category === 'headphones'
-        );
+        setTimeout(() => {
+          this.isLoading = false;
+          this.headphones = data.filter(
+            (product: Product) => product.category === 'headphones'
+          );
+        }, 500);
       },
     });
   }
