@@ -1,9 +1,9 @@
 <picture>
-  <source [srcset]="images.desktop" media="(min-width: 1024px)" />
-  <source [srcset]="images.tablet" media="(min-width: 768px)" />
-  <source [srcset]="images.mobile" media="(max-width:767px)" />
+  <source [srcset]="image.desktop" media="(min-width: 1024px)" />
+  <source [srcset]="image.tablet" media="(min-width: 768px)" />
+  <source [srcset]="image.mobile" media="(max-width:767px)" />
   <img
-    [src]="images.default"
+    [src]="image.mobile"
     class="rounded-[8px] w-full h-full"
     loading="eager"
   />

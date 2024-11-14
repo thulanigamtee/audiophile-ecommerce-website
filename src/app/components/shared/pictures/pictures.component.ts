@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Image } from '../../../models/image.interface';
 
 @Component({
   selector: 'app-pictures',
@@ -7,10 +8,5 @@ import { Component, Input } from '@angular/core';
   templateUrl: './pictures.component.html',
 })
 export class PicturesComponent {
-  @Input() images!: {
-    desktop: string;
-    tablet: string;
-    mobile: string;
-    default: string;
-  };
+  @Input() image!: Image;
 }
