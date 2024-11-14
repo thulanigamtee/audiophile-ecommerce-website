@@ -5,6 +5,8 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { PicturesComponent } from '../pictures/pictures.component';
 import { Subject, takeUntil } from 'rxjs';
+import { LoaderComponent } from '../loader/loader.component';
+import { Product } from '../../../models/product.interface';
 
 @Component({
   selector: 'app-products',
@@ -13,12 +15,14 @@ import { Subject, takeUntil } from 'rxjs';
     CommonModule,
     ProductCardComponent,
     PicturesComponent,
+    LoaderComponent,
   ],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {
-  @Input() productsData!: any;
+  @Input() products: Product[] = [];
   @Input() heading!: string;
+  @Input() isLoading: boolean = true;
   private destroy$ = new Subject<void>();
 
   isDesktop!: boolean;
