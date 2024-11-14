@@ -13,8 +13,19 @@ export class CartService {
   private cartSubject = new BehaviorSubject<CartItem[]>([]);
   cartSubject$ = this.cartSubject.asObservable();
 
+  private cartStateSubject = new BehaviorSubject<boolean>(false);
+  cartStateSubject$ = this.cartStateSubject.asObservable();
+
   constructor() {
     this.loadCartFromStorage();
+  }
+
+  get cartState() {
+    return this.cartStateSubject.value;
+  }
+
+  set cartState(state: boolean) {
+    this.cartStateSubject.next(state);
   }
 
   private saveCartToStorage(): void {
