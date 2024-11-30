@@ -1,1 +1,6 @@
-<app-navbar /> <router-outlet />
+<div [class.home-background]="isHomePage">
+  <app-navbar />
+  <router-outlet />
+  <app-outro />
+  <app-footer />
+</div>
