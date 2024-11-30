@@ -1,1 +1,65 @@
-<p>home works!</p>
+<main class="text-center mt-[106px]">
+  <section class="px-[7%]">
+    <span class="uppercase text-sm tracking-[10px] text-[#979797]"
+      >new product</span
+    >
+    <h1 class="my-5 font-bold uppercase">XX99 mark ii headphones</h1>
+    <p class="text-lightGray">
+      Experience natural, lifelike audio and exceptional build quality made for
+      the passionate music enthusiast.
+    </p>
+    <app-button
+      [label]="'see product'"
+      [customStyle]="'bg-orange w-40 mt-8 text-white'"
+    />
+  </section>
+  <app-product-card />
+  <section
+    class="bg-orange flex flex-col justify-center mx-[5%] rounded-[8px] bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-no-repeat bg-cover bg-top py-12 px-4"
+  >
+    <img
+      src="/assets/home/mobile/image-speaker-zx9.png"
+      class="w-[50%] min-w-[120px] max-w-[197px] mx-auto"
+    />
+    <h1 class="my-8">
+      zx9<br />
+      speaker
+    </h1>
+    <p>
+      Upgrade to premium speakers that are phenomenally built to deliver truly
+      remarkable sound.
+    </p>
+    <app-button
+      [label]="'see product'"
+      [customStyle]="'bg-black w-40 text-white mt-8'"
+    />
+  </section>
+  <section
+    class="bg-[url('/assets/home/mobile/image-speaker-zx7.jpg')] rounded-[8px] bg-[#979797] mx-[5%] h-[320px] bg-no-repeat bg-right bg-cover text-start pl-8 flex flex-col justify-center mt-6 gap-y-8"
+  >
+    <h2 class="text-[28px] tracking-[2px] uppercase text-black font-bold">
+      zx7 speaker
+    </h2>
+    <app-button
+      [label]="'see product'"
+      [customStyle]="'border-[1px] border-black w-40 text-black'"
+    />
+  </section>
+  <section class="mx-[5%] text-start mt-6">
+    <img
+      src="/assets/home/mobile/image-earphones-yx1.jpg"
+      class="rounded-[8px] w-[100%]"
+    />
+    <div
+      class="bg-lightGray h-[200px] rounded-[8px] flex flex-col justify-center pl-8 mt-6 gap-y-8"
+    >
+      <h2 class="text-[28px] tracking-[2px] uppercase text-black font-bold">
+        yx1 earphones
+      </h2>
+      <app-button
+        [label]="'see product'"
+        [customStyle]="'border-[1px] border-black w-40 text-black'"
+      />
+    </div>
+  </section>
+</main>
