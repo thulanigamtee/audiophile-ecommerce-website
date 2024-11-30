@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./app/partials/" as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-manrope);
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: var(--font-size-h#{$i});
+    line-height: var(--line-height-h#{$i});
+    letter-spacing: var(--letter-spacing-h#{$i});
+  }
+}
+
+a {
+  font-size: var(--font-size-anchor);
+  line-height: var(--line-height-anchro);
+  letter-spacing: var(--letter-spacing-anchor);
+}
