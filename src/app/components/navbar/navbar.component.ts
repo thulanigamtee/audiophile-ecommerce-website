@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   navLinks: { name: string; path: string }[] = [
-    { name: 'home', path: '/' },
+    { name: 'home', path: '' },
     { name: 'headphones', path: 'headphones' },
     { name: 'speakers', path: 'speakers' },
     { name: 'earphones', path: 'earphones' },
