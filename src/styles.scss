@@ -28,6 +28,17 @@ body {
   }
 }
 
+.headphones-background,
+.speakers-background,
+.earphones-background {
+  background-color: var(--color-black);
+  width: 100%;
+  height: 192px;
+  @media (min-width: 768px) {
+    height: 336px;
+  }
+}
+
 // @for $i from 1 through 6 {
 //   h#{$i} {
 //     font-size: var(--font-size-h#{$i});
