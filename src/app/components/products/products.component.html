@@ -1,1 +1,60 @@
-<section></section>
+<section>
+  <div class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto text-center mb-">
+    <h2 class="text-white text-[28px] font-bold uppercase mt-8 md:mt-24">
+      {{ heading }}
+    </h2>
+    <ul class="flex flex-col mt-24 text-center md:mt-60 gap-y-20 lg:gap-y-24">
+      @for(product of productsData; track $index) {
+      <li
+        [ngStyle]="{
+          flexDirection: isDesktop
+            ? $index % 2 === 0
+              ? 'row'
+              : 'row-reverse'
+            : null
+        }"
+        class="flex flex-col gap-y-8 lg:justify-between lg:items-center"
+      >
+        <div class="relative w-full lg:w-[50%]">
+          <picture>
+            <source
+              [srcset]="product.categoryImage.desktop"
+              media="(min-width:1024px)"
+            />
+            <source
+              [srcset]="product.categoryImage.tablet"
+              media="(min-width:768px)"
+            />
+            <source
+              [srcset]="product.categoryImage.mobile"
+              media="(max-width:768px)"
+            />
+            <img
+              [src]="product.categoryImage.mobile"
+              class="rounded-[8px] w-full"
+            />
+          </picture>
+        </div>
+        <div class="flex flex-col gap-y-6 lg:text-start lg:w-[445px]">
+          <!-- <span class="uppercase text-sm tracking-[10px] text-orange">
+                  new product
+                </span> -->
+          <h2
+            class="font-bold uppercase text-[28px] md:text-[40px] md:tracking-[1.43px] md:leading-[44px] tracking-[1px]"
+          >
+            {{ product.name }}
+          </h2>
+          <p class="text-[#979797] text-[15px] leading-[25px] font-medium">
+            {{ product.description }}
+          </p>
+          <app-button
+            [label]="'see product'"
+            [customStyle]="'bg-orange w-40 text-white hover:bg-lightOrange'"
+          />
+        </div>
+      </li>
+      }
+    </ul>
+  </div>
+  <app-product-card />
+</section>
