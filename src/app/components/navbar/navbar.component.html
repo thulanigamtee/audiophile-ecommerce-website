@@ -1,5 +1,6 @@
 <header
-  class="bg-orange flex items-center justify-between px-[5%] lg:w-[1110px] lg:mx-auto lg:px-0"
+  [ngStyle]="{ boxShadow: '0 0.5px 0 0 hsl(0,0%,25%)' }"
+  class="flex items-center justify-between xl:w-[77%] lg:mx-auto lg:px-0 py-8 w-[87%] md:w-[89%] mx-auto"
 >
   <button
     class="bg-[url('/assets/shared/tablet/icon-hamburger.svg')] bg-no-repeat bg-center w-4 h-4 md:hidden"
@@ -7,9 +8,11 @@
   <img src="/assets/shared/desktop/logo.svg" alt="logo" />
   <nav class="hidden md:block">
     <ul class="flex md:w-[429px] justify-between">
-      @for(link of navLinks; track $index) {
+      @for(link of navLinks; track link.name) {
       <li>
-        <a class="uppercase text-white" [href]="link.path">{{ link.name }}</a>
+        <a class="text-white uppercase hover:text-orange" [href]="link.path">{{
+          link.name
+        }}</a>
       </li>
       }
     </ul>
