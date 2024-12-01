@@ -1,64 +1,113 @@
-<main class="text-center mt-[106px]">
-  <section class="px-[7%]">
+<main>
+  <section
+    class="justify-center h-[511px] md:h-[640px] xl:h-[637px] flex flex-col text-center w-[87%] md:w-[89%] xl:w-[77%] mx-auto lg:text-start gap-y-8"
+  >
     <span class="uppercase text-sm tracking-[10px] text-[#979797]"
       >new product</span
     >
-    <h1 class="my-5 font-bold uppercase">XX99 mark ii headphones</h1>
-    <p class="text-lightGray">
+    <h1 class="font-bold uppercase">
+      XX99 mark ii<br />
+      headphones
+    </h1>
+    <p class="text-lightGray lg:w-[379px] md:w-[349px] md:mx-auto lg:mx-0">
       Experience natural, lifelike audio and exceptional build quality made for
       the passionate music enthusiast.
     </p>
     <app-button
       [label]="'see product'"
-      [customStyle]="'bg-orange w-40 mt-8 text-white'"
+      [customStyle]="'bg-orange w-40 text-white hover:bg-lightOrange'"
     />
   </section>
   <app-product-card />
   <section
-    class="bg-orange flex flex-col justify-center mx-[5%] rounded-[8px] bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-no-repeat bg-cover bg-top py-12 px-4"
+    class="bg-orange overflow-hidden mt-32 gap-y-6 flex flex-col lg:flex-row lg:items-center lg:text-start justify-center w-[87%] md:w-[89%] xl:w-[77%] rounded-[8px] bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-no-repeat bg-cover bg-top py-12 px-4 lg:px-0 lg:gap-x-[10%] mx-auto text-center"
   >
-    <img
-      src="/assets/home/mobile/image-speaker-zx9.png"
-      class="w-[50%] min-w-[120px] max-w-[197px] mx-auto"
-    />
-    <h1 class="my-8">
-      zx9<br />
-      speaker
-    </h1>
-    <p>
-      Upgrade to premium speakers that are phenomenally built to deliver truly
-      remarkable sound.
-    </p>
-    <app-button
-      [label]="'see product'"
-      [customStyle]="'bg-black w-40 text-white mt-8'"
-    />
+    <div class="relative w-full">
+      <picture>
+        <source
+          srcset="/assets/home/desktop/image-speaker-zx9.png"
+          media="(min-width: 1024px)"
+        />
+        <source
+          srcset="/assets/home/tablet/image-speaker-zx9.png"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="/assets/home/mobile/image-speaker-zx9.png"
+          media="(max-width:767px)"
+        />
+        <img
+          src="/assets/home/mobile/image-speaker-zx9.png"
+          class="rounded-[8px] w-[173px] md:w-[197px] mx-auto lg:w-[410px] lg:translate-y-16"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+    <div
+      class="flex flex-col gap-y-6 lg:w-[304px] md:w-[345px] md:mx-auto lg:mx-0"
+    >
+      <h1>
+        zx9<br />
+        speaker
+      </h1>
+      <p>
+        Upgrade to premium speakers that are phenomenally built to deliver truly
+        remarkable sound.
+      </p>
+      <app-button
+        [label]="'see product'"
+        [customStyle]="'bg-black w-40 text-white hover:bg-[#4c4c4c]'"
+      />
+    </div>
   </section>
   <section
-    class="bg-[url('/assets/home/mobile/image-speaker-zx7.jpg')] rounded-[8px] bg-[#979797] mx-[5%] h-[320px] bg-no-repeat bg-right bg-cover text-start pl-8 flex flex-col justify-center mt-6 gap-y-8"
+    class="md:h-[320px] lg:bg-[url('/assets/home/desktop/image-speaker-zx7.jpg')] md:bg-[url('/assets/home/tablet/image-speaker-zx7.jpg')] bg-[url('/assets/home/mobile/image-speaker-zx7.jpg')] rounded-[8px] bg-[#979797] w-[87%] md:w-[89%] xl:w-[77%] mx-auto h-[320px] bg-no-repeat bg-right bg-cover text-start pl-[7%] md:pl-[5%] flex flex-col justify-center mt-8 gap-y-8"
   >
     <h2 class="text-[28px] tracking-[2px] uppercase text-black font-bold">
       zx7 speaker
     </h2>
     <app-button
       [label]="'see product'"
-      [customStyle]="'border-[1px] border-black w-40 text-black'"
+      [customStyle]="
+        'border-[1px] border-black w-40 text-black hover:bg-black hover:text-white'
+      "
     />
   </section>
-  <section class="mx-[5%] text-start mt-6">
-    <img
-      src="/assets/home/mobile/image-earphones-yx1.jpg"
-      class="rounded-[8px] w-[100%]"
-    />
+  <section
+    class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto text-start mt-8 flex flex-col md:h-[px] gap-y-6 md:flex-row md:gap-x-6"
+  >
+    <div class="relative w-full md:w-[50%]">
+      <picture>
+        <source
+          srcset="/assets/home/desktop/image-earphones-yx1.jpg"
+          media="(min-width: 1024px)"
+        />
+        <source
+          srcset="/assets/home/tablet/image-earphones-yx1.jpg"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="/assets/home/mobile/image-earphones-yx1.jpg"
+          media="(max-width:767px)"
+        />
+        <img
+          src="/assets/home/mobile/image-earphones-yx1.jpg"
+          class="rounded-[8px] w-full md:h-[320px]"
+          loading="lazy"
+        />
+      </picture>
+    </div>
     <div
-      class="bg-lightGray h-[200px] rounded-[8px] flex flex-col justify-center pl-8 mt-6 gap-y-8"
+      class="bg-lightGray h-[200px] rounded-[8px] flex flex-col justify-center pl-[8%] md:pl-[5%] gap-y-8 md:w-[50%] md:h-[320px]"
     >
       <h2 class="text-[28px] tracking-[2px] uppercase text-black font-bold">
         yx1 earphones
       </h2>
       <app-button
         [label]="'see product'"
-        [customStyle]="'border-[1px] border-black w-40 text-black'"
+        [customStyle]="
+          'border-[1px] border-black w-40 text-black hover:bg-black hover:text-white'
+        "
       />
     </div>
   </section>
