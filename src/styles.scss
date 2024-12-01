@@ -9,11 +9,45 @@ body {
   font-style: normal;
 }
 
-@for $i from 1 through 6 {
-  h#{$i} {
-    font-size: var(--font-size-h#{$i});
-    line-height: var(--line-height-h#{$i});
-    letter-spacing: var(--letter-spacing-h#{$i});
+.home-background {
+  background-image: url("/assets/home/mobile/image-header.jpg");
+  background-size: cover;
+  background-color: #1a1919;
+  background-position: center;
+  background-repeat: no-repeat;
+  // width: 375px;
+  height: 600px;
+  max-width: 1440px;
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    background-image: url("/assets/home/tablet/image-header.jpg");
+    height: 729px;
+  }
+  @media (min-width: 1024px) {
+    background-image: url("/assets/home/desktop/image-hero.jpg");
+  }
+}
+
+// @for $i from 1 through 6 {
+//   h#{$i} {
+//     font-size: var(--font-size-h#{$i});
+//     line-height: var(--line-height-h#{$i});
+//     letter-spacing: var(--letter-spacing-h#{$i});
+//     color: var(--color-white);
+//   }
+// }
+
+h1 {
+  font-size: var(--font-size-mobile-h1);
+  line-height: 40px;
+  letter-spacing: 1.29px;
+  color: var(--color-white);
+  font-weight: bold;
+  text-transform: uppercase;
+  @media (min-width: 768px) {
+    font-size: 56px;
+    line-height: 58px;
+    letter-spacing: 2px;
   }
 }
 
@@ -21,4 +55,32 @@ a {
   font-size: var(--font-size-anchor);
   line-height: var(--line-height-anchro);
   letter-spacing: var(--letter-spacing-anchor);
+  color: var(--color-white);
+}
+
+p {
+  font-size: var(--font-size-paragraph);
+  line-height: var(--line-height-paragraph);
+  letter-spacing: var(--letter-spacing-paragraph);
+  color: var(--color-white);
+}
+
+button {
+  font-family: var(--font-manrope);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-card {
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.98);
+    transition: 0.3s ease-in-out;
+    a {
+      color: var(--color-orange);
+    }
+  }
 }
