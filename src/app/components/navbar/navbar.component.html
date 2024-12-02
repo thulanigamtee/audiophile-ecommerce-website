@@ -10,9 +10,7 @@
     <ul class="flex md:w-[429px] justify-between">
       @for(link of navLinks; track link.name) {
       <li>
-        <a class="text-white uppercase hover:text-orange" [href]="link.path">{{
-          link.name
-        }}</a>
+        <a [href]="link.path">{{ link.name }}</a>
       </li>
       }
     </ul>
