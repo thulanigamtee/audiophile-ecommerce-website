@@ -1,0 +1,10 @@
+<picture>
+  <source [srcset]="images.desktopImage" media="(min-width: 1024px)" />
+  <source [srcset]="images.tabletImage" media="(min-width: 768px)" />
+  <source [srcset]="images.mobileImage" media="(max-width:767px)" />
+  <img
+    [src]="images.defaultImage"
+    class="rounded-[8px] w-full"
+    loading="lazy"
+  />
+</picture>
