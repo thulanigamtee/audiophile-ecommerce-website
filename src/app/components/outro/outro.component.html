@@ -2,32 +2,17 @@
   class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto flex flex-col lg:flex-row-reverse lg:justify-between lg:items-center relative mt-32"
 >
   <div class="relative w-full lg:w-[50%]">
-    <picture>
-      <source
-        srcset="/assets/shared/desktop/image-best-gear.jpg"
-        media="(min-width: 1024px)"
-      />
-      <source
-        srcset="/assets/shared/tablet/image-best-gear.jpg"
-        media="(min-width: 768px)"
-      />
-      <source srcset="/assets/shared/mobile/image-best-gear.jpg" />
-      <img
-        src="/assets/shared/mobile/image-best-gear.jpg"
-        class="rounded-[8px] justify-end w-full"
-        loading="lazy"
-      />
-    </picture>
+    <app-pictures [images]="bestGearImages" />
   </div>
   <div
     class="text-center lg:max-w-[445px] lg:text-start flex flex-col gap-y-8 mt-8"
   >
-    <h2
-      class="text-[28px] md:leading-[44px] md:text-[40px] md:tracking-[1.43px] tracking-[1px] uppercase text-black font-bold"
-    >
-      bringing you the <span class="text-orange">best</span> audio gear
+    <h2>
+      bringing you the
+      <span class="text-orange text-[28px] md:text-[40px]">best</span> audio
+      gear
     </h2>
-    <p class="text-[#777777] font-medium">
+    <p>
       Located at the heart of New York City, Audiophile is the premier store for
       high end headphones, earphones, speakers, and audio accessories. We have a
       large showroom and luxury demonstration rooms available for you to browse
