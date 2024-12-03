@@ -10,26 +10,26 @@ import { PicturesComponent } from '../../components/pictures/pictures.component'
 })
 export class HomeComponent {
   speakerImages: {
-    desktopImage: string;
-    tabletImage: string;
-    mobileImage: string;
-    defaultImage: string;
+    desktop: string;
+    tablet: string;
+    mobile: string;
+    default: string;
   } = {
-    desktopImage: '/assets/home/desktop/image-speaker-zx9.png',
-    tabletImage: '/assets/home/tablet/image-speaker-zx9.png',
-    mobileImage: '/assets/home/mobile/image-speaker-zx9.png',
-    defaultImage: '/assets/home/mobile/image-speaker-zx9.png',
+    desktop: '/assets/home/desktop/image-speaker-zx9.png',
+    tablet: '/assets/home/tablet/image-speaker-zx9.png',
+    mobile: '/assets/home/mobile/image-speaker-zx9.png',
+    default: '/assets/home/mobile/image-speaker-zx9.png',
   };
 
   earphonesImages: {
-    desktopImage: string;
-    tabletImage: string;
-    mobileImage: string;
-    defaultImage: string;
+    desktop: string;
+    tablet: string;
+    mobile: string;
+    default: string;
   } = {
-    desktopImage: '/assets/home/desktop/image-earphones-yx1.jpg',
-    tabletImage: '/assets/home/tablet/image-earphones-yx1.jpg',
-    mobileImage: '/assets/home/mobile/image-earphones-yx1.jpg',
-    defaultImage: '/assets/home/mobile/image-earphones-yx1.jpg',
+    desktop: '/assets/home/desktop/image-earphones-yx1.jpg',
+    tablet: '/assets/home/tablet/image-earphones-yx1.jpg',
+    mobile: '/assets/home/mobile/image-earphones-yx1.jpg',
+    default: '/assets/home/mobile/image-earphones-yx1.jpg',
   };
 }
