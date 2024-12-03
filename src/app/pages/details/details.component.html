@@ -1,0 +1,88 @@
+<section>
+  <div class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto mt-4 md:mt-8 lg:mt-20">
+    <a class="text-[#979797] capitalize">go back</a>
+    <ul class="mt-4 lg:mt-12">
+      @for(product of productDetails; track $index) {
+      <li>
+        <div
+          class="flex flex-col gap-y-5 md:flex-row md:justify-between md:w-full md:items-center"
+        >
+          <div class="relative md:w-[40%] lg:w-[50%]">
+            <app-pictures [images]="product.image" />
+          </div>
+          <div
+            class="flex flex-col gap-y-6 md:gap-y-8 md:w-[340px] lg:w-[445px]"
+          >
+            <div class="flex flex-col gap-y-5 md:gap-y-7">
+              <h2>{{ product.name }}</h2>
+              <p>{{ product.description }}</p>
+              <h6>{{ product.price | currency : "USD" }}</h6>
+            </div>
+            <div class="flex gap-x-4">
+              <div
+                class="bg-[#f1f1f1] w-[120px] flex justify-between items-center text-center"
+              >
+                <app-button
+                  [label]="'-'"
+                  [isRoute]="false"
+                  [customStyle]="
+                    'text-[#979797] font-bold w-[45px] hover:text-[orange]'
+                  "
+                />
+                <p
+                  class="font-bold text-[13px] text-black self-center bg-red-4 w-[20px] mx-auto"
+                >
+                  1
+                </p>
+                <app-button
+                  [label]="'+'"
+                  [isRoute]="false"
+                  [customStyle]="
+                    'text-[#979797] font-bold w-[45px] hover:text-[orange]'
+                  "
+                />
+              </div>
+              <app-button
+                [label]="'add to cart'"
+                [isRoute]="false"
+                [customStyle]="'bg-orange w-40 text-white hover:bg-lightOrange'"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col mt-20 md:mt-28 gap-y-20 lg:w-full lg:flex-row lg:gap-x-[10%]"
+        >
+          <div class="flex flex-col gap-y-5 lg:w-[60%]">
+            <h3>features</h3>
+            <p>{{ product.features[0] }}</p>
+            <p>{{ product.features[1] }}</p>
+          </div>
+          <div
+            class="flex flex-col gap-y-5 md:grid md:grid-cols-2 lg:flex lg:flex-col"
+          >
+            <h3>in the box</h3>
+            <ul class="flex flex-col gap-y-2 md:gap-y-4">
+              @for(item of product.includes; track $index) {
+              <li class="flex gap-x-5">
+                <p class="text-[#D87D4A] text-[15px] lowercase">
+                  {{ item.quantity }}x
+                </p>
+                <p>{{ item.item }}</p>
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </li>
+      <app-gallery
+        [firstItem]="product.gallery.first"
+        [secondItem]="product.gallery.second"
+        [thirdItem]="product.gallery.third"
+      />
+      <app-other-items [items]="product.others" />
+      }
+    </ul>
+  </div>
+  <app-product-card />
+</section>
