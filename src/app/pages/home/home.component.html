@@ -13,7 +13,11 @@
     </p>
     <app-button
       [label]="'see product'"
-      [customStyle]="'bg-orange w-40 text-white hover:bg-lightOrange'"
+      [customStyle]="
+        'bg-orange w-40 text-white hover:bg-lightOrange hover:text-white'
+      "
+      [isRoute]="true"
+      [route]="['/headphones' + '/details' + '/xx99-mark-two-headphones']"
     />
   </section>
   <app-product-card />
@@ -36,7 +40,11 @@
       </p>
       <app-button
         [label]="'see product'"
-        [customStyle]="'bg-black w-40 text-white hover:bg-[#4c4c4c]'"
+        [customStyle]="
+          'bg-black w-40 text-white hover:bg-[#4c4c4c] hover:text-white'
+        "
+        [isRoute]="true"
+        [route]="['/speakers' + '/details' + '/zx9-speaker']"
       />
     </div>
   </section>
@@ -49,6 +57,8 @@
       [customStyle]="
         'border-[1px] border-black w-40 text-black hover:bg-black hover:text-white'
       "
+      [isRoute]="true"
+      [route]="['/speakers' + '/details' + '/zx7-speaker']"
     />
   </section>
   <section
@@ -66,6 +76,8 @@
         [customStyle]="
           'border-[1px] border-black w-40 text-black hover:bg-black hover:text-white'
         "
+        [isRoute]="true"
+        [route]="['/earphones' + '/details' + '/yx1-earphones']"
       />
     </div>
   </section>
