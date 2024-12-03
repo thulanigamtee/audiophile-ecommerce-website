@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PicturesComponent } from '../pictures/pictures.component';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-other-items',
-  imports: [],
+  imports: [PicturesComponent, ButtonComponent],
   templateUrl: './other-items.component.html',
 })
-export class OtherItemsComponent {}
+export class OtherItemsComponent {
+  @Input() items!: any;
+}
