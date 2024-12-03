@@ -3,10 +3,16 @@ import { ButtonComponent } from '../button/button.component';
 import { CommonModule } from '@angular/common';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { PicturesComponent } from '../pictures/pictures.component';
 
 @Component({
   selector: 'app-products',
-  imports: [ButtonComponent, CommonModule, ProductCardComponent],
+  imports: [
+    ButtonComponent,
+    CommonModule,
+    ProductCardComponent,
+    PicturesComponent,
+  ],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {
