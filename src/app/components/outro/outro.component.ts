@@ -8,14 +8,14 @@ import { PicturesComponent } from '../pictures/pictures.component';
 })
 export class OutroComponent {
   bestGearImages: {
-    desktopImage: string;
-    tabletImage: string;
-    mobileImage: string;
-    defaultImage: string;
+    desktop: string;
+    tablet: string;
+    mobile: string;
+    default: string;
   } = {
-    desktopImage: '/assets/shared/desktop/image-best-gear.jpg',
-    tabletImage: '/assets/shared/tablet/image-best-gear.jpg',
-    mobileImage: '/assets/shared/mobile/image-best-gear.jpg',
-    defaultImage: '/assets/shared/mobile/image-best-gear.jpg',
+    desktop: '/assets/shared/desktop/image-best-gear.jpg',
+    tablet: '/assets/shared/tablet/image-best-gear.jpg',
+    mobile: '/assets/shared/mobile/image-best-gear.jpg',
+    default: '/assets/shared/mobile/image-best-gear.jpg',
   };
 }
