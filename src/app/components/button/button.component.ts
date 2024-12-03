@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-button',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
   @Input() label!: string;
-  // @Input() color!: string;
   @Input() customStyle!: string;
+  @Input() isRoute!: boolean;
+  @Input() route!: string[];
 
   @Output() buttonEvent = new EventEmitter();
 
