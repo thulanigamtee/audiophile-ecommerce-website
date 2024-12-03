@@ -21,7 +21,7 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.setBackgroundClass(event.urlAfterRedirects);
@@ -30,14 +30,16 @@ export class AppComponent {
   }
 
   setBackgroundClass(url: string): void {
-    if (url === '/') {
-      this.backgroundClass = 'home-background';
-    } else if (url.startsWith('/headphones')) {
-      this.backgroundClass = 'headphones-background';
-    } else if (url.startsWith('/speakers')) {
-      this.backgroundClass = 'speakers-background';
-    } else if (url.startsWith('/earphones')) {
-      this.backgroundClass = 'earphones-background';
+    if (url.includes('details')) {
+      this.backgroundClass = 'details-page-background';
+    } else if (url === '/') {
+      this.backgroundClass = 'home-page-background';
+    } else if (
+      url.startsWith('/headphones') ||
+      url.startsWith('/speakers') ||
+      url.startsWith('/earphones')
+    ) {
+      this.backgroundClass = 'products-page-background';
     }
   }
 }
