@@ -1,15 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pictures',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './pictures.component.html',
 })
 export class PicturesComponent {
   @Input() images!: {
-    desktopImage: string;
-    tabletImage: string;
-    mobileImage: string;
-    defaultImage: string;
+    desktop: string;
+    tablet: string;
+    mobile: string;
+    default: string;
   };
 }
