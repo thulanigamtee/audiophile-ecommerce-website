@@ -4,6 +4,7 @@
   >
     @for(product of products; track $index) {
     <li
+      (click)="goToPage(product.name)"
       class="product-card bg-lightGray pb-6 rounded-[8px] h-[165px] lg:h-[204px] w-full flex flex-col justify-end item-end items-center"
     >
       <img
@@ -12,9 +13,10 @@
       />
       <h6 class="mb-4 text-black">{{ product.name }}</h6>
       <a
-        class="text-[13px] flex items-center justify-between uppercase mx-auto w-[58px] whitespace-nowrap text-[#979797] font-bold tracking-[1px]"
+        [routerLink]="'/' + product.name"
+        class="flex items-center justify-between uppercase mx-auto w-[58px] whitespace-nowrap text-[#979797] font-bold tracking-[1px]"
       >
-        <span>shop</span>
+        <span class="text-[13px] tracking-[1px]">shop</span>
         <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M1.322 1l5 5-5 5"
