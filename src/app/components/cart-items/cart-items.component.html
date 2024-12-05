@@ -1,0 +1,57 @@
+<ul
+  class="flex flex-col gap-y-6"
+  [ngStyle]="{ padding: isCart ? '30px' : '0px' }"
+>
+  @if(isCart) {
+  <div class="flex items-center justify-between">
+    <h6 class="uppercase">cart ({{ cartItems.length }})</h6>
+    <app-button
+      [label]="'remove all'"
+      [customStyle]="'bg-none text-[#979797] tex-[13px] font-medium'"
+    />
+  </div>
+  } @for(item of cartItems; track $index) {
+  <li class="flex items-center justify-between">
+    <div class="flex items-center gap-x-3">
+      <img
+        [src]="item.product.cartImage"
+        [alt]="item.product.nickName"
+        class="rounded-[8px]"
+        width="64px"
+        height="64px"
+      />
+      <div>
+        <p class="font-bold text-black capitalize">
+          {{ item.product.nickName }}
+        </p>
+        <p class="font-bold">{{ item.product.price | currency : "USD" }}</p>
+      </div>
+    </div>
+    @if(isCart) {
+    <div
+      class="bg-[#f1f1f1] w-[96px] flex justify-between items-center text-center"
+    >
+      <app-button
+        [label]="'-'"
+        [isRoute]="false"
+        [customStyle]="'text-[#979797] w-8 h-8 font-bold hover:text-[orange]'"
+      />
+      <p class="font-bold text-[13px] text-black self-center bg-red-4 mx-auto">
+        1
+      </p>
+      <app-button
+        [label]="'+'"
+        [isRoute]="false"
+        [customStyle]="'text-[#979797] w-8 h-8 font-bold hover:text-[orange]'"
+      />
+    </div>
+    } @else {
+    <p class="text-[#979797] font-bold">x{{ item.quantity }}</p>
+    }
+  </li>
+  }
+  <app-button
+    [label]="label"
+    [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
+  />
+</ul>
