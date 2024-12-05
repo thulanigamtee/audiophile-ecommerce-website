@@ -3,6 +3,7 @@
     "id": 1,
     "slug": "yx1-earphones",
     "name": "YX1 Wireless Earphones",
+    "nickName": "YX1",
     "image": {
       "mobile": "./assets/product-yx1-earphones/mobile/image-product.jpg",
       "tablet": "./assets/product-yx1-earphones/tablet/image-product.jpg",
@@ -41,6 +42,7 @@
         "item": "Travel pouch"
       }
     ],
+    "cartImage": "./assets/cart/image-yx1-earphones.jpg",
     "gallery": {
       "first": {
         "mobile": "./assets/product-yx1-earphones/mobile/image-gallery-1.jpg",
@@ -95,6 +97,7 @@
     "id": 2,
     "slug": "xx59-headphones",
     "name": "XX59 Headphones",
+    "nickName": "XX59",
     "image": {
       "mobile": "./assets/product-xx59-headphones/mobile/image-product.jpg",
       "tablet": "./assets/product-xx59-headphones/tablet/image-product.jpg",
@@ -128,6 +131,7 @@
         "item": "3.5mm 5m audio cable"
       }
     ],
+    "cartImage": "./assets/cart/image-xx59-headphones.jpg",
     "gallery": {
       "first": {
         "mobile": "./assets/product-xx59-headphones/mobile/image-gallery-1.jpg",
@@ -182,6 +186,7 @@
     "id": 3,
     "slug": "xx99-mark-one-headphones",
     "name": "XX99 Mark I Headphones",
+    "nickName": "XX99 MK I",
     "image": {
       "mobile": "./assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
       "tablet": "./assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
@@ -215,6 +220,7 @@
         "item": "3.5mm 5m audio cable"
       }
     ],
+    "cartImage": "./assets/cart/image-xx99-mark-one-headphones.jpg",
     "gallery": {
       "first": {
         "mobile": "./assets/product-xx99-mark-one-headphones/mobile/image-gallery-1.jpg",
@@ -269,6 +275,7 @@
     "id": 4,
     "slug": "xx99-mark-two-headphones",
     "name": "XX99 Mark II Headphones",
+    "nickName": "XX99 MK II",
     "image": {
       "mobile": "./assets/product-xx99-mark-two-headphones/mobile/image-product.jpg",
       "tablet": "./assets/product-xx99-mark-two-headphones/tablet/image-product.jpg",
@@ -306,6 +313,7 @@
         "item": "Travel bag"
       }
     ],
+    "cartImage": "./assets/cart/image-xx99-mark-two-headphones.jpg",
     "gallery": {
       "first": {
         "mobile": "./assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg",
@@ -360,6 +368,7 @@
     "id": 5,
     "slug": "zx7-speaker",
     "name": "ZX7 Speaker",
+    "nickName": "ZX7",
     "image": {
       "mobile": "./assets/product-zx7-speaker/mobile/image-product.jpg",
       "tablet": "./assets/product-zx7-speaker/tablet/image-product.jpg",
@@ -397,6 +406,7 @@
         "item": "7.5m optical cable"
       }
     ],
+    "cartImage": "./assets/cart/image-zx7-speaker.jpg",
     "gallery": {
       "first": {
         "mobile": "./assets/product-zx7-speaker/mobile/image-gallery-1.jpg",
@@ -451,6 +461,7 @@
     "id": 6,
     "slug": "zx9-speaker",
     "name": "ZX9 Speaker",
+    "nickName": "ZX9",
     "image": {
       "mobile": "./assets/product-zx9-speaker/mobile/image-product.jpg",
       "tablet": "./assets/product-zx9-speaker/tablet/image-product.jpg",
@@ -488,6 +499,7 @@
         "item": "10m optical cable"
       }
     ],
+    "cartImage": "./assets/cart/image-zx9-speaker.jpg",
     "gallery": {
       "first": {
         "mobile": "./assets/product-zx9-speaker/mobile/image-gallery-1.jpg",
