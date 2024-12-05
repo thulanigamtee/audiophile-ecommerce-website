@@ -1,6 +1,8 @@
 <div [ngClass]="backgroundClass">
   <app-navbar />
   <router-outlet />
+  @if(!isCheckout) {
   <app-outro />
+  }
   <app-footer />
 </div>
