@@ -25,12 +25,13 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.setBackgroundClass(event.urlAfterRedirects);
+        this.isCheckoutPage(event.urlAfterRedirects);
       }
     });
   }
 
   setBackgroundClass(url: string): void {
-    if (url.includes('details')) {
+    if (url.includes('details') || url.startsWith('/checkout')) {
       this.backgroundClass = 'details-page-background';
     } else if (url === '/') {
       this.backgroundClass = 'home-page-background';
@@ -41,5 +42,14 @@ export class AppComponent {
     ) {
       this.backgroundClass = 'products-page-background';
     }
+  }
+
+  isCheckout: boolean = false;
+  isCheckoutPage(url: string) {
+    if (url.startsWith('/checkout')) {
+      this.isCheckout = true;
+      return;
+    }
+    this.isCheckout = false;
   }
 }
