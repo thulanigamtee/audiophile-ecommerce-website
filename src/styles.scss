@@ -97,6 +97,27 @@ img {
   vertical-align: middle;
 }
 
+input {
+  font-family: var(--font-manrope);
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  height: 56px;
+  color: #979797;
+  outline: #d87d4a;
+  &::placeholder {
+    font-size: 14px;
+    font-weight: bold;
+    color: #979797;
+    letter-spacing: -0.25px;
+  }
+  // &:focus,
+  // &:active {
+  //   border: 1px solid green;
+  // }
+}
+
 .product-card {
   &:hover {
     cursor: pointer;
@@ -106,4 +127,8 @@ img {
       color: var(--color-orange);
     }
   }
+}
+
+.cart {
+  @include fadeIn(block);
 }
