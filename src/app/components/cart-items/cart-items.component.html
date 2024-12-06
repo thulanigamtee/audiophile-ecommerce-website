@@ -49,6 +49,36 @@
     <p class="text-[#979797] font-bold">x{{ item.quantity }}</p>
     }
   </li>
+  } @if(isCart) {
+  <div class="flex justify-between">
+    <p class="uppercase">total</p>
+    <p class="text-lg font-bold text-black">
+      {{ totalPrice | currency : "USD" }}
+    </p>
+  </div>
+  } @else {
+  <div>
+    <ul>
+      @for(info of summaryInformation; track $index) {
+      <li
+        class="flex justify-between gap-y-2"
+        [ngStyle]="{
+          marginTop: info.name === 'grand total' ? '16px' : 0
+        }"
+      >
+        <p class="uppercase">{{ info.name }}</p>
+        <p
+          class="text-lg font-bold"
+          [ngStyle]="{
+            color: info.name === 'grand total' ? '#D87D4A' : 'black'
+          }"
+        >
+          {{ info.amount | currency : "USD" }}
+        </p>
+      </li>
+      }
+    </ul>
+  </div>
   }
   <app-button
     [label]="label"
