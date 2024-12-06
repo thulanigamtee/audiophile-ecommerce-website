@@ -1,7 +1,11 @@
-<section
-  class="fixed inset-0 top-[90px] w-full h-full bg-[#979797] bg-opacity-50 z-10"
+<!-- <section
+  [class.active]="isCartActive"
+  class="cart fixed inset-0 w-full h-full bg-[#979797] bg-opacity-50"
+> -->
+<div
+  [class.active]="isCartActive"
+  class="bg-white cart rounded-[8px] w-[90%] max-w-[377px] mt-6 mx-auto sm:absolute sm:right-[50px] xl:right-[13%]"
 >
-  <div class="w-[90%] bg-white rounded-[8px] mx-auto max-w-[377px] mt-6">
-    <app-cart-items [isCart]="true" [label]="'checkout'" />
-  </div>
-</section>
+  <app-cart-items [isCart]="true" [label]="'checkout'" />
+</div>
+<!-- </section> -->
