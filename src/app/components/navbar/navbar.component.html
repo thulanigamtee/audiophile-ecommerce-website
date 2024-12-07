@@ -1,8 +1,12 @@
 <header
-  [ngStyle]="{ boxShadow: '0 0.5px 0 0 hsl(0,0%,25%)' }"
-  class="flex items-center justify-between xl:w-[77%] lg:mx-auto lg:px-0 py-8 w-[87%] md:w-[89%] mx-auto"
+  [ngStyle]="{
+    boxShadow: '0 0.5px 0 0 hsl(0,0%,25%)',
+    backgroundColor: isNavActive ? 'black' : 'transparent'
+  }"
+  class="flex items-center justify-between xl:w-[77%] lg:mx-auto lg:px-0 py-8 md:w-[89%] mx-auto px-[7%] md:px-0 md:h-24"
 >
   <button
+    (click)="toggleMobileMenu()"
     class="bg-[url('/assets/shared/tablet/icon-hamburger.svg')] bg-no-repeat bg-center w-4 h-4 md:hidden"
   ></button>
   <img src="/assets/shared/desktop/logo.svg" alt="logo" />
@@ -16,6 +20,8 @@
     </ul>
   </nav>
   <button
+    (click)="toggleCart()"
     class="bg-[url('/assets/shared/desktop/icon-cart.svg')] h-[20px] w-[23px] bg-no-repeat bg-center"
   ></button>
 </header>
+<app-cart />
