@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartComponent } from '../cart/cart.component';
 import { Subject, takeUntil } from 'rxjs';
 
