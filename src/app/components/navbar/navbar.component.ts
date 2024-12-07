@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartComponent } from '../cart/cart.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,8 @@ import { CartComponent } from '../cart/cart.component';
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
+  private destroy$ = new Subject<void>();
+
   navLinks: { name: string; path: string }[] = [
     { name: 'home', path: '' },
     { name: 'headphones', path: 'headphones' },
@@ -18,22 +21,29 @@ export class NavbarComponent {
     { name: 'earphones', path: 'earphones' },
   ];
 
-  isActive: boolean = false;
-
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
-    this.breakpointObserver.observe(['(min-width:768px']).subscribe(() => {
-      if (this.isActive) this.isActive = false;
-    });
+    this.breakpointObserver
+      .observe(['(min-width:768px)'])
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        if (this.isNavActive) this.isNavActive = false;
+      });
   }
 
+  isNavActive: boolean = false;
   toggleMobileMenu() {
-    this.isActive = !this.isActive;
+    this.isNavActive = !this.isNavActive;
   }
 
   @ViewChild(CartComponent) cartComponent!: CartComponent;
   toggleCart() {
     this.cartComponent.toggleCart();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
