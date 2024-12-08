@@ -1,0 +1,74 @@
+<section class="relative">
+  <div
+    [class.active]="isCartActive"
+    [ngStyle]="{ boxShadow: '0 0 100px 1px #979797' }"
+    class="bg-white cart rounded-[8px] w-[90%] max-w-[377px] mt-6 mx-auto absolute right-[5%] xl:right-[11.5%]"
+  >
+    <ul class="p-[30px]">
+      <div class="flex items-center justify-between">
+        <h6 class="uppercase">cart ({{ cartItems.length }})</h6>
+        <app-button
+          [label]="'remove all'"
+          [customStyle]="
+            'bg-none text-[#979797] tex-[13px] font-medium hover:text-orange'
+          "
+          (buttonEvent)="clearCart()"
+        />
+      </div>
+      @for(item of cartItems; track $index) {
+      <li class="flex items-center justify-between">
+        <div class="flex items-center gap-x-3">
+          <img
+            [src]="item.product.cartImage"
+            [alt]="item.product.nickName"
+            class="rounded-[8px]"
+            width="64px"
+            height="64px"
+          />
+          <div>
+            <p class="font-bold text-black capitalize">
+              {{ item.product.nickName }}
+            </p>
+            <p class="font-bold">{{ item.product.price | currency : "USD" }}</p>
+          </div>
+        </div>
+        <div
+          class="bg-[#f1f1f1] w-[96px] flex justify-between items-center text-center"
+        >
+          <app-button
+            [label]="'-'"
+            [isRoute]="false"
+            [customStyle]="
+              'text-[#979797] w-8 h-8 font-bold hover:text-[orange]'
+            "
+            (buttonEvent)="removeCartItem(item)"
+          />
+          <p
+            class="font-bold text-[13px] text-black self-center bg-red-4 mx-auto"
+          >
+            {{ item.quantity }}
+          </p>
+          <app-button
+            [label]="'+'"
+            [isRoute]="false"
+            [customStyle]="
+              'text-[#979797] w-8 h-8 font-bold hover:text-[orange]'
+            "
+            (buttonEvent)="addCartItem(item)"
+          />
+        </div>
+      </li>
+      }
+      <div class="flex justify-between">
+        <p class="uppercase">total</p>
+        <p class="text-lg font-bold text-black">
+          {{ totalPrice | currency : "USD" }}
+        </p>
+      </div>
+      <app-button
+        [label]="'checkout'"
+        [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
+      />
+    </ul>
+  </div>
+</section>
