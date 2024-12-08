@@ -1,0 +1,53 @@
+<section class="mt-20 lg:w-[350px]">
+  <h6>summary</h6>
+  <div class="mt-6">
+    <ul class="flex flex-col gap-y-6">
+      @for(item of summaryItems; track $index) {
+      <li class="flex items-center justify-between">
+        <div class="flex items-center gap-x-3">
+          <img
+            [src]="item.product.cartImage"
+            [alt]="item.product.nickName"
+            class="rounded-[8px]"
+            width="64px"
+            height="64px"
+          />
+          <div>
+            <p class="font-bold text-black capitalize">
+              {{ item.product.nickName }}
+            </p>
+            <p class="font-bold">{{ item.product.price | currency : "USD" }}</p>
+          </div>
+        </div>
+        <p class="text-[#979797] font-bold">x{{ item.quantity }}</p>
+      </li>
+      }
+      <div>
+        <ul>
+          @for(info of summaryInformation; track $index) {
+          <li
+            class="flex justify-between gap-y-2"
+            [ngStyle]="{
+              marginTop: info.name === 'grand total' ? '16px' : 0
+            }"
+          >
+            <p class="uppercase">{{ info.name }}</p>
+            <p
+              class="text-lg font-bold"
+              [ngStyle]="{
+                color: info.name === 'grand total' ? '#D87D4A' : 'black'
+              }"
+            >
+              {{ info.amount | currency : "USD" }}
+            </p>
+          </li>
+          }
+        </ul>
+      </div>
+      <app-button
+        [label]="'continue & pay'"
+        [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
+      />
+    </ul>
+  </div>
+</section>
