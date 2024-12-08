@@ -36,7 +36,6 @@ export class CartComponent {
     if (item.quantity > 1) {
       item.quantity--;
     } else {
-      // Remove the item entirely if quantity is 1
       this.cartItems = this.cartItems.filter(
         (cartItem) => cartItem.product.slug !== item.product.slug
       );
@@ -51,5 +50,10 @@ export class CartComponent {
 
   clearCart() {
     this.cartService.clearCart();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
