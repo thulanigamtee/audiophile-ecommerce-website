@@ -32,4 +32,9 @@ export class SummaryComponent {
     { name: 'vat (included)', amount: 1079 },
     { name: 'grand total', amount: this.totalPrice + 50 },
   ];
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
