@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { DataService } from '../../services/data.service';
-import { ProductsComponent } from '../../components/products/products.component';
+import { ProductsComponent } from '../../components/shared/products/products.component';
 
 @Component({
   selector: 'app-earphones',

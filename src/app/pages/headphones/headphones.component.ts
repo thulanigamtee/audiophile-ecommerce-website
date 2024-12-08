@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ProductsComponent } from '../../components/products/products.component';
+import { ProductsComponent } from '../../components/shared/products/products.component';
 import { DataService } from '../../services/data.service';
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
