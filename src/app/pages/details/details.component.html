@@ -1,4 +1,4 @@
-<section>
+<main>
   <div class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto mt-4 md:mt-8 lg:mt-20">
     <a class="text-[#979797] capitalize">go back</a>
     <ul class="mt-4 lg:mt-12">
@@ -28,11 +28,12 @@
                   [customStyle]="
                     'text-[#979797] font-bold w-[45px] hover:text-[orange]'
                   "
+                  (buttonEvent)="decrementQuantity()"
                 />
                 <p
                   class="font-bold text-[13px] text-black self-center bg-red-4 w-[20px] mx-auto"
                 >
-                  1
+                  {{ quantity }}
                 </p>
                 <app-button
                   [label]="'+'"
@@ -40,12 +41,14 @@
                   [customStyle]="
                     'text-[#979797] font-bold w-[45px] hover:text-[orange]'
                   "
+                  (buttonEvent)="incrementQuantity()"
                 />
               </div>
               <app-button
                 [label]="'add to cart'"
                 [isRoute]="false"
                 [customStyle]="'bg-orange w-40 text-white hover:bg-lightOrange'"
+                (buttonEvent)="addToCart(product)"
               />
             </div>
           </div>
@@ -85,4 +88,4 @@
     </ul>
   </div>
   <app-product-card />
-</section>
+</main>
