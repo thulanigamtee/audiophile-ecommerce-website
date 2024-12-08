@@ -66,4 +66,9 @@ export class DetailsComponent {
   addToCart(product: Product) {
     this.cartService.addToCart(product, this.quantity);
   }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
