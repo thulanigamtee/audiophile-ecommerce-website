@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CartComponent } from '../cart/cart.component';
 import { Subject, takeUntil } from 'rxjs';
+import { OverlayService } from '../../../services/overlay.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,10 @@ export class NavbarComponent {
     { name: 'earphones', path: 'earphones' },
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private overlayService: OverlayService
+  ) {}
 
   ngOnInit() {
     this.breakpointObserver
@@ -39,6 +43,7 @@ export class NavbarComponent {
   @ViewChild(CartComponent) cartComponent!: CartComponent;
   toggleCart() {
     this.cartComponent.toggleCart();
+    this.overlayService.overlay = !this.overlayService.overlay;
   }
 
   ngOnDestroy() {
