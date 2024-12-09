@@ -32,20 +32,20 @@ export class CartComponent {
     });
   }
 
-  removeCartItem(item: CartItem) {
-    if (item.quantity > 1) {
-      item.quantity--;
-    } else {
+  removeCartItem(item: CartItem): void {
+    if (item.quantity === 1) {
       this.cartItems = this.cartItems.filter(
         (cartItem) => cartItem.product.slug !== item.product.slug
       );
+    } else {
+      item.quantity--;
     }
-    this.cartService.updateCart(); // Save changes
+    this.cartService.updateCart(this.cartItems);
   }
 
   addCartItem(item: CartItem) {
     item.quantity++;
-    this.cartService.updateCart();
+    this.cartService.updateCart(this.cartItems);
   }
 
   clearCart() {
