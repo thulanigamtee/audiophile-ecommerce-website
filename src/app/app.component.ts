@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
-import { OutroComponent } from './components/outro/outro.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { OutroComponent } from './components/shared/outro/outro.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { fadeIn } from './animations/route-animations';
+import { OverlayService } from './services/overlay.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +18,14 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent,
   ],
   templateUrl: './app.component.html',
+  animations: [fadeIn],
 })
 export class AppComponent {
   backgroundClass: string = '';
+  isDialogActive: boolean = false;
+  private destroy$ = new Subject<void>();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private overlayService: OverlayService) {}
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -28,6 +34,17 @@ export class AppComponent {
         this.isCheckoutPage(event.urlAfterRedirects);
       }
     });
+    this.overlayService.overlayActive$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (isActive) => {
+          this.isDialogActive = isActive;
+        },
+      });
+  }
+
+  routeAnimationData(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData;
   }
 
   setBackgroundClass(url: string): void {
