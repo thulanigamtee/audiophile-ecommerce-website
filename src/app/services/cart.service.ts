@@ -8,10 +8,10 @@ import { Product } from '../models/product.interface';
 })
 export class CartService {
   private cart: CartItem[] = [];
-  private cartSubject = new BehaviorSubject<CartItem[]>([]);
-
-  cart$ = this.cartSubject.asObservable();
   private readonly CART_STORAGE_KEY = 'cartData';
+
+  private cartSubject = new BehaviorSubject<CartItem[]>([]);
+  cartSubject$ = this.cartSubject.asObservable();
 
   constructor() {
     this.loadCartFromStorage();
@@ -31,7 +31,7 @@ export class CartService {
 
   addToCart(product: Product, quantity: number = 1): void {
     const existingItem = this.cart.find(
-      (item) => item.product.id === product.id
+      (item) => item.product.slug === product.slug
     );
 
     if (existingItem) {
@@ -44,7 +44,7 @@ export class CartService {
     this.saveCartToStorage();
   }
 
-  get cartItems(): CartItem[] {
+  get CartItems(): CartItem[] {
     return this.cart;
   }
 
@@ -61,22 +61,9 @@ export class CartService {
     );
   }
 
-  removeFromCart(productId: string): void {
-    this.cart = this.cart.filter((item) => item.product.id !== productId);
+  updateCart(cartItems: CartItem[]): void {
+    this.cart = cartItems;
     this.cartSubject.next(this.cart);
     this.saveCartToStorage();
-  }
-
-  updateQuantity(productId: string, quantity: number): void {
-    const item = this.cart.find((item) => item.product.id === productId);
-
-    if (item) {
-      item.quantity = quantity;
-      if (item.quantity <= 0) {
-        this.removeFromCart(productId);
-      }
-      this.cartSubject.next(this.cart);
-      this.saveCartToStorage();
-    }
   }
 }
