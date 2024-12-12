@@ -34,13 +34,11 @@ export class AppComponent {
         this.isCheckoutPage(event.urlAfterRedirects);
       }
     });
-    this.overlayService.overlaySubject$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (isActive) => {
-          this.isDialogActive = isActive;
-        },
-      });
+    this.overlayService.overlay$.pipe(takeUntil(this.destroy$)).subscribe({
+      next: (isActive) => {
+        this.isDialogActive = isActive;
+      },
+    });
   }
 
   routeAnimationData(outlet: RouterOutlet) {
