@@ -24,7 +24,7 @@ export class SummaryComponent {
   ) {}
 
   ngOnInit() {
-    this.cartService.cartSubject$.pipe(takeUntil(this.destroy$)).subscribe({
+    this.cartService.cart$.pipe(takeUntil(this.destroy$)).subscribe({
       next: (items) => {
         this.summaryItems = items;
         this.totalPrice = this.cartService.totalPrice;
