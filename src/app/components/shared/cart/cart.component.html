@@ -1,5 +1,7 @@
 <section class="relative">
   <div
+    appOutsideClick
+    (outsideClick)="onOutsideClick()"
     [class.active]="isCartActive"
     class="cart bg-white z-20 rounded-[8px] w-[90%] max-w-[377px] mt-6 mx-auto absolute right-[5%] xl:right-[11.5%]"
   >
@@ -69,9 +71,7 @@
       <app-button
         [label]="'checkout'"
         [disabled]="cartItems.length === 0 ? true : false"
-        [customStyle]="
-          'bg-orange hover:bg-lightOrange text-white w-full hover:text-white'
-        "
+        [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
         (buttonEvent)="goToCheckout()"
       />
     </ul>
