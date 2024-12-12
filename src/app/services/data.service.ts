@@ -8,8 +8,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DataService {
   private url = 'assets/data.json';
 
-  private _productId = new BehaviorSubject<string>('');
-  productId$ = this._productId.asObservable();
+  private productIdSubject = new BehaviorSubject<string>('');
+  productId$ = this.productIdSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -18,10 +18,10 @@ export class DataService {
   }
 
   get productId() {
-    return this._productId.value;
+    return this.productIdSubject.value;
   }
 
   set productId(id: string) {
-    this._productId.next(id);
+    this.productIdSubject.next(id);
   }
 }
