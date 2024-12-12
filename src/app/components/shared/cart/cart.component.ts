@@ -47,7 +47,7 @@ export class CartComponent {
   onOutsideClick() {
     if (this.cartService.cartState) {
       this.cartService.cartState = false;
-      this.overlayService.overlay = false;
+      this.overlayService.overlayState = false;
     }
   }
 
@@ -73,6 +73,8 @@ export class CartComponent {
 
   goToCheckout() {
     this.router.navigate(['checkout']);
+    this.overlayService.overlayState = false;
+    this.cartService.cartState = false;
   }
 
   ngOnDestroy() {
