@@ -5,10 +5,12 @@ import { Subject, takeUntil } from 'rxjs';
 import { CartService } from '../../../services/cart.service';
 import { ButtonComponent } from '../button/button.component';
 import { Router } from '@angular/router';
+import { OutsideClickDirective } from '../../../directives/outside-click.directive';
+import { OverlayService } from '../../../services/overlay.service';
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, OutsideClickDirective],
   templateUrl: './cart.component.html',
 })
 export class CartComponent {
@@ -16,21 +18,37 @@ export class CartComponent {
   totalPrice: number = 0;
   private destroy$ = new Subject<void>();
 
-  isCartActive: boolean = false;
-
-  toggleCart() {
-    this.isCartActive = !this.isCartActive;
-  }
-
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private overlayService: OverlayService
+  ) {}
 
   ngOnInit() {
-    this.cartService.cartSubject$.pipe(takeUntil(this.destroy$)).subscribe({
+    this.cartService.cart$.pipe(takeUntil(this.destroy$)).subscribe({
       next: (items) => {
         this.cartItems = items;
         this.totalPrice = this.cartService.totalPrice;
       },
     });
+    this.cartService.cartState$.pipe(takeUntil(this.destroy$)).subscribe({
+      next: (state) => {
+        this.isCartActive = state;
+      },
+    });
+  }
+
+  isCartActive: boolean = false;
+  toggleCart(event: Event) {
+    event.stopPropagation();
+    this.cartService.cartState = !this.cartService.cartState;
+  }
+
+  onOutsideClick() {
+    if (this.cartService.cartState) {
+      this.cartService.cartState = false;
+      this.overlayService.overlay = false;
+    }
   }
 
   removeCartItem(item: CartItem): void {
@@ -54,7 +72,7 @@ export class CartComponent {
   }
 
   goToCheckout() {
-    this.router.navigate(['/', 'checkout']);
+    this.router.navigate(['checkout']);
   }
 
   ngOnDestroy() {
