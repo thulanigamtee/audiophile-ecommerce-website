@@ -40,8 +40,8 @@ export class SummaryComponent {
   ];
 
   showModal() {
-    this.modalService.modal = true;
-    this.overlayService.overlay = true;
+    this.modalService.modalState = true;
+    this.overlayService.overlayState = true;
   }
 
   ngOnDestroy() {
