@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class OverlayService {
   private overlaySubject = new BehaviorSubject(false);
-  overlaySubject$ = this.overlaySubject.asObservable();
+  overlay$ = this.overlaySubject.asObservable();
 
   set overlay(state: boolean) {
     this.overlaySubject.next(state);
