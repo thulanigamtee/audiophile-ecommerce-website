@@ -42,7 +42,7 @@ export class MobileMenuComponent {
       .subscribe(() => {
         if (this.isMobileMenuActive) {
           this.isMobileMenuActive = false;
-          this.overlayService.overlay = false;
+          this.overlayService.overlayState = false;
         }
       });
   }
