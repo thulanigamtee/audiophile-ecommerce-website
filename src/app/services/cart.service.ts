@@ -11,10 +11,10 @@ export class CartService {
   private readonly CART_STORAGE_KEY = 'cartData';
 
   private cartSubject = new BehaviorSubject<CartItem[]>([]);
-  cartSubject$ = this.cartSubject.asObservable();
+  cart$ = this.cartSubject.asObservable();
 
   private cartStateSubject = new BehaviorSubject<boolean>(false);
-  cartStateSubject$ = this.cartStateSubject.asObservable();
+  cartState$ = this.cartStateSubject.asObservable();
 
   constructor() {
     this.loadCartFromStorage();
