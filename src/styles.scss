@@ -142,3 +142,7 @@ input {
 .modal {
   @include fadeIn(flex);
 }
+
+.mobile-menu {
+  @include fadeIn(block);
+}
