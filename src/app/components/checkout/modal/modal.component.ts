@@ -41,8 +41,8 @@ export class ModalComponent {
   }
 
   closeModal() {
-    this.modalService.modal = false;
-    this.overlayService.overlay = false;
+    this.modalService.modalState = false;
+    this.overlayService.overlayState = false;
     this.cartService.clearCart();
     setTimeout(() => {
       this.router.navigate(['/']);
