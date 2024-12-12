@@ -8,11 +8,11 @@ export class OverlayService {
   private overlaySubject = new BehaviorSubject(false);
   overlay$ = this.overlaySubject.asObservable();
 
-  set overlay(state: boolean) {
+  set overlayState(state: boolean) {
     this.overlaySubject.next(state);
   }
 
-  get overlay() {
+  get overlayState() {
     return this.overlaySubject.value;
   }
 
