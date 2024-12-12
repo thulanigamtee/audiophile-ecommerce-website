@@ -50,6 +50,7 @@ export class MobileMenuComponent {
   isMobileMenuActive: boolean = false;
   toggleMobileMenu() {
     this.isMobileMenuActive = !this.isMobileMenuActive;
+    this.overlayService.overlayState = !this.overlayService.overlayState;
   }
 
   goToPage(page: string) {

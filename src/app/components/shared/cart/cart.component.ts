@@ -42,6 +42,7 @@ export class CartComponent {
   toggleCart(event: Event) {
     event.stopPropagation();
     this.cartService.cartState = !this.cartService.cartState;
+    this.overlayService.overlayState = !this.overlayService.overlayState;
   }
 
   onOutsideClick() {
