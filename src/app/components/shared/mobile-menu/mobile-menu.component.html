@@ -1,0 +1,38 @@
+<section class="relative">
+  <div
+    [class.active]="isMobileMenuActive"
+    class="absolute z-20 w-full pt-24 pb-10 bg-white rounded-b-lg mobile-menu sm:pb-14"
+  >
+    <ul
+      class="flex flex-col mx-auto gap-y-16 sm:flex-row sm:justify-between sm:w-full sm:gap-x-5 px-[7%] md:px-[5%]"
+    >
+      @for(link of mobileMenuLinks; track $index) {
+      <li
+        (click)="goToPage(link.name)"
+        class="product-card bg-lightGray pb-6 rounded-[8px] h-[165px] lg:h-[204px] w-full flex flex-col justify-end item-end items-center"
+      >
+        <img
+          [src]="link.image"
+          class="w-[142px] translate-y-0 lg:translate-y-4 lg:w-[220px]"
+        />
+        <h6 class="mb-4 text-black">{{ link.name }}</h6>
+        <a
+          [routerLink]="'/' + link.name"
+          class="flex items-center justify-between uppercase mx-auto w-[58px] whitespace-nowrap text-[#979797] font-bold tracking-[1px]"
+        >
+          <span class="text-[13px] tracking-[1px]">shop</span>
+          <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1.322 1l5 5-5 5"
+              stroke="#D87D4A"
+              stroke-width="2"
+              fill="none"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </a>
+      </li>
+      }
+    </ul>
+  </div>
+</section>
