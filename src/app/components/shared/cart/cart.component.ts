@@ -45,7 +45,7 @@ export class CartComponent {
     this.overlayService.overlayState = !this.overlayService.overlayState;
   }
 
-  onOutsideClick() {
+  handleOutsideClick() {
     if (this.cartService.cartState) {
       this.cartService.cartState = false;
       this.overlayService.overlayState = false;
