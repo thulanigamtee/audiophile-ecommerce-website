@@ -32,6 +32,10 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         this.setBackgroundClass(event.urlAfterRedirects);
         this.isCheckoutPage(event.urlAfterRedirects);
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
       }
     });
     this.overlayService.overlay$.pipe(takeUntil(this.destroy$)).subscribe({
