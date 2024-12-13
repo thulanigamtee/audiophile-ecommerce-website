@@ -6,10 +6,12 @@
   class="flex items-center justify-between xl:w-[77%] lg:mx-auto lg:px-0 py-8 md:w-[89%] mx-auto px-[7%] md:px-0 md:h-24"
 >
   <button
-    (click)="toggleMobileMenu()"
-    class="bg-[url('/assets/shared/tablet/icon-hamburger.svg')] bg-no-repeat bg-center w-4 h-4 lg:hidden z-20"
+    (click)="toggleMobileMenu($event)"
+    class="bg-[url('/assets/shared/tablet/icon-hamburger.svg')] bg-no-repeat bg-center w-4 h-4 lg:hidden"
   ></button>
-  <img src="/assets/shared/desktop/logo.svg" alt="logo" />
+  <a [routerLink]="['/']">
+    <img src="/assets/shared/desktop/logo.svg" alt="logo" />
+  </a>
   <nav class="z-20 hidden lg:block">
     <ul class="flex md:w-[429px] justify-between">
       @for(link of navLinks; track link.name) {
@@ -21,7 +23,7 @@
   </nav>
   <button
     (click)="toggleCart($event)"
-    class="bg-[url('/assets/shared/desktop/icon-cart.svg')] h-[20px] w-[23px] bg-no-repeat bg-center z-20"
+    class="bg-[url('/assets/shared/desktop/icon-cart.svg')] h-[20px] w-[23px] bg-no-repeat bg-center"
   ></button>
 </header>
 <app-cart />

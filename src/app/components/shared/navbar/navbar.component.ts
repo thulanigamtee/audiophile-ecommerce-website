@@ -19,8 +19,8 @@ export class NavbarComponent {
 
   isMobileMenuActive: boolean = false;
   @ViewChild(MobileMenuComponent) mobileMenuComponent!: MobileMenuComponent;
-  toggleMobileMenu() {
-    this.mobileMenuComponent.toggleMobileMenu();
+  toggleMobileMenu(event: Event) {
+    this.mobileMenuComponent.toggleMobileMenu(event);
   }
 
   @ViewChild(CartComponent) cartComponent!: CartComponent;
