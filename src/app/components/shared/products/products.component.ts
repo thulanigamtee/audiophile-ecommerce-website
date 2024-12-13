@@ -5,7 +5,6 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { PicturesComponent } from '../pictures/pictures.component';
 import { Subject, takeUntil } from 'rxjs';
-import { T } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-products',
