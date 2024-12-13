@@ -1,7 +1,9 @@
 <section class="relative">
   <div
+    appOutsideClick
+    (outsideClick)="handleOutsideClick()"
     [class.active]="isMobileMenuActive"
-    class="absolute z-20 w-full pt-24 pb-10 bg-white rounded-b-lg mobile-menu sm:pb-14"
+    class="absolute z-20 w-full pt-24 pb-10 bg-white rounded-b-lg mobile-menu sm:pb-14 md:-mt-2"
   >
     <ul
       class="flex flex-col mx-auto gap-y-16 sm:flex-row sm:justify-between sm:w-full sm:gap-x-5 px-[7%] md:px-[5%]"

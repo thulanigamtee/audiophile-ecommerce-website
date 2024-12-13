@@ -3,10 +3,11 @@ import { Router, RouterLink } from '@angular/router';
 import { OverlayService } from '../../../services/overlay.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Subject, takeUntil } from 'rxjs';
+import { OutsideClickDirective } from '../../../directives/outside-click.directive';
 
 @Component({
   selector: 'app-mobile-menu',
-  imports: [RouterLink],
+  imports: [RouterLink, OutsideClickDirective],
   templateUrl: './mobile-menu.component.html',
 })
 export class MobileMenuComponent {
@@ -47,8 +48,16 @@ export class MobileMenuComponent {
       });
   }
 
+  handleOutsideClick() {
+    if (this.isMobileMenuActive) {
+      this.isMobileMenuActive = false;
+      this.overlayService.overlayState = false;
+    }
+  }
+
   isMobileMenuActive: boolean = false;
-  toggleMobileMenu() {
+  toggleMobileMenu(event: Event) {
+    event.stopPropagation();
     this.isMobileMenuActive = !this.isMobileMenuActive;
     this.overlayService.overlayState = !this.overlayService.overlayState;
   }
