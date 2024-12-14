@@ -27,11 +27,19 @@ export class SummaryComponent {
     this.cartService.cart$.pipe(takeUntil(this.destroy$)).subscribe({
       next: (items) => {
         this.summaryItems = items;
+        const shippingFee = 50;
+        const vat = (this.cartService.totalPrice * 20) / 100; // 20%
         this.summaryInformation = [
           { name: 'total', amount: this.cartService.totalPrice },
-          { name: 'shipping', amount: 50 },
-          { name: 'vat (included)', amount: 1079 },
-          { name: 'grand total', amount: this.cartService.totalPrice + 50 },
+          { name: 'shipping', amount: shippingFee },
+          {
+            name: 'vat (included)',
+            amount: vat,
+          },
+          {
+            name: 'grand total',
+            amount: this.cartService.totalPrice + shippingFee,
+          },
         ];
       },
     });
