@@ -13,6 +13,7 @@ export class ButtonComponent {
   @Input() isRoute!: boolean;
   @Input() route!: string[];
   @Input() disabled!: boolean;
+  @Input() isLoading!: boolean;
 
   @Output() buttonEvent = new EventEmitter();
 
