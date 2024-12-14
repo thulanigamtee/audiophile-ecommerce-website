@@ -64,5 +64,7 @@ export class MobileMenuComponent {
 
   goToPage(page: string) {
     this.router.navigate([page]);
+    this.isMobileMenuActive = false;
+    this.overlayService.overlayState = false;
   }
 }
