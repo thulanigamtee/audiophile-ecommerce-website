@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { DataService } from '../../services/data.service';
 import { PicturesComponent } from '../../components/shared/pictures/pictures.component';
@@ -23,6 +23,7 @@ import { Product } from '../../models/product.interface';
     OtherItemsComponent,
     ProductCardComponent,
     LoaderComponent,
+    RouterLink,
   ],
   templateUrl: './details.component.html',
 })

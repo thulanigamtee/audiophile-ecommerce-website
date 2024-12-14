@@ -1,6 +1,10 @@
 <main>
   <div class="w-[87%] md:w-[89%] xl:w-[77%] mx-auto mt-4 md:mt-8 lg:mt-20">
-    <a class="text-[#979797] capitalize">go back</a>
+    <a
+      [routerLink]="['/', productDetails[0].category]"
+      class="text-[#979797] capitalize"
+      >go back</a
+    >
     @if(isLoading) {
     <app-loader />
     } @else {
