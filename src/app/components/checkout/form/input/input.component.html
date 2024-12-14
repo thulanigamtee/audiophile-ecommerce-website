@@ -1,13 +1,34 @@
 <div class="flex flex-col gap-y-3" [class]="customStyle">
-  <label [for]="id" class="text-black font-bold text-[12px] capitalize">{{
-    label
-  }}</label>
+  <div class="flex justify-between">
+    <label
+      [ngStyle]="{
+        color:
+          control?.errors?.required && control?.touched ? '#cd2c2c' : 'black'
+      }"
+      [for]="id"
+      class="text-black font-bold text-[12px] capitalize"
+      >{{ label }}</label
+    >
+    @if(control?.errors?.required && control?.touched) {
+    <span
+      class="text-xs text-[#cd2c2c] -tracking-[0.21px] font-medium lowercase"
+    >
+      field is invalid
+    </span>
+    }
+  </div>
   <ng-content></ng-content>
   <input
     [id]="id"
     type="type"
     [placeholder]="placeholder"
     [formControl]="control"
+    [ngStyle]="{
+      boxShadow:
+        control?.errors?.required && control?.touched
+          ? ' 0 0 0 2px #cd2c2c'
+          : ''
+    }"
     class="w-full pl-4 focus:border-orange border-[1px]"
   />
 </div>
