@@ -4,7 +4,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { OutroComponent } from './components/shared/outro/outro.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { fadeIn } from './animations/route-animations';
 import { OverlayService } from './services/overlay.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ToastComponent } from './components/shared/toast/toast.component';
@@ -20,7 +19,6 @@ import { ToastComponent } from './components/shared/toast/toast.component';
     ToastComponent,
   ],
   templateUrl: './app.component.html',
-  animations: [fadeIn],
 })
 export class AppComponent {
   backgroundClass: string = '';
