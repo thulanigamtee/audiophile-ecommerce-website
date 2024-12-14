@@ -60,7 +60,7 @@ export class CartComponent {
         (cartItem) => cartItem.product.slug !== item.product.slug
       );
       this.toastService.displayToastMessage(
-        `${item.product.slug} removed from cart`
+        `${item.product.nickName} removed from cart`
       );
     } else {
       item.quantity--;
