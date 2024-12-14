@@ -22,7 +22,10 @@
         <div
           class="flex flex-col gap-y-6 lg:text-start lg:w-[445px] items-center lg:items-start"
         >
-          <!-- <span class="text-orange">new product</span> -->
+          @if(product.new) {
+          <span class="text-orange">new product</span>
+
+          }
           <h2>{{ product.name }}</h2>
           <p>{{ product.description }}</p>
           <app-button
