@@ -54,6 +54,7 @@
               <app-button
                 [label]="'add to cart'"
                 [isRoute]="false"
+                [isLoading]="isLoadingButton"
                 [customStyle]="'bg-orange w-40 text-white hover:bg-lightOrange'"
                 (buttonEvent)="addToCart(product)"
               />

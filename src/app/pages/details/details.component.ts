@@ -30,6 +30,7 @@ export class DetailsComponent {
   productDetails: Product[] = [];
   quantity: number = 1;
   isLoading: boolean = true;
+  isLoadingButton: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -75,7 +76,11 @@ export class DetailsComponent {
 
   addToCart(product: Product) {
     this.cartService.addToCart(product, this.quantity);
-    this.toastService.displayToastMessage(`${product.slug} added to cart`);
+    this.toastService.displayToastMessage(`${product.nickName} added to cart`);
+    this.isLoadingButton = true;
+    setTimeout(() => {
+      this.isLoadingButton = false;
+    }, 500);
   }
 
   ngOnDestroy() {
