@@ -7,6 +7,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { OverlayService } from './services/overlay.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ToastComponent } from './components/shared/toast/toast.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,14 @@ import { ToastComponent } from './components/shared/toast/toast.component';
     OutroComponent,
     FooterComponent,
     ToastComponent,
+    LoaderComponent,
   ],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
   backgroundClass: string = '';
   isDialogActive: boolean = false;
+  isLoading: boolean = true;
   private destroy$ = new Subject<void>();
 
   constructor(private router: Router, private overlayService: OverlayService) {}
@@ -43,6 +46,9 @@ export class AppComponent {
         this.isDialogActive = isActive;
       },
     });
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
 
   routeAnimationData(outlet: RouterOutlet) {
