@@ -1,12 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartComponent } from '../cart/cart.component';
 import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule, RouterLink, CartComponent, MobileMenuComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    CartComponent,
+    MobileMenuComponent,
+    RouterLinkActive,
+  ],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
