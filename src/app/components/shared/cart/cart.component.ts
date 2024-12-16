@@ -17,6 +17,7 @@ import { ToastService } from '../../../services/toast.service';
 export class CartComponent {
   cartItems: CartItem[] = [];
   totalPrice: number = 0;
+  isLoadingButton: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -75,12 +76,17 @@ export class CartComponent {
 
   clearCart() {
     this.cartService.clearCart();
+    this.toastService.displayToastMessage('Cart cleared');
   }
 
   goToCheckout() {
-    this.router.navigate(['checkout']);
-    this.overlayService.overlayState = false;
-    this.cartService.cartState = false;
+    this.isLoadingButton = true;
+    setTimeout(() => {
+      this.isLoadingButton = false;
+      this.router.navigate(['checkout']);
+      this.overlayService.overlayState = false;
+      this.cartService.cartState = false;
+    }, 500);
   }
 
   ngOnDestroy() {

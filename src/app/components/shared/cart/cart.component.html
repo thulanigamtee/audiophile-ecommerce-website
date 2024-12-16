@@ -13,6 +13,7 @@
           [customStyle]="
             'bg-none text-[#979797] tex-[13px] font-medium hover:text-orange'
           "
+          [disabled]="this.cartItems.length === 0 ? true : false"
           (buttonEvent)="clearCart()"
         />
       </div>
@@ -71,7 +72,10 @@
       <app-button
         [label]="'checkout'"
         [disabled]="cartItems.length === 0 ? true : false"
-        [customStyle]="'bg-orange hover:bg-lightOrange text-white w-full'"
+        [isLoading]="isLoadingButton"
+        [customStyle]="
+          'bg-orange hover:bg-lightOrange text-white w-full disabled:bg-lightOrange'
+        "
         (buttonEvent)="goToCheckout()"
       />
     </ul>
