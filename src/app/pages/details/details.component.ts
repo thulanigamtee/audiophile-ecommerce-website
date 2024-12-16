@@ -53,16 +53,16 @@ export class DetailsComponent {
   getProductDetails() {
     this.dataService.data.pipe(takeUntil(this.destroy$)).subscribe({
       next: (data) => {
-        setTimeout(() => {
-          this.isLoading = false;
-          this.dataService.productId$.pipe(takeUntil(this.destroy$)).subscribe({
-            next: (id) => {
-              this.productDetails = data.filter(
-                (product: Product) => product.slug === id
-              );
-            },
-          });
-        }, 500);
+        // setTimeout(() => {
+        this.isLoading = false;
+        this.dataService.productId$.pipe(takeUntil(this.destroy$)).subscribe({
+          next: (id) => {
+            this.productDetails = data.filter(
+              (product: Product) => product.slug === id
+            );
+          },
+        });
+        // }, 500);
       },
     });
   }
