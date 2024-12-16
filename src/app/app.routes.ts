@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/home/home.component').then(
-        (component) => component.HomeComponent
-      ),
+    // loadComponent: () =>
+    //   import('./pages/home/home.component').then(
+    //     (component) => component.HomeComponent
+    //   ),
+    component: HomeComponent,
   },
   {
     path: 'headphones',
