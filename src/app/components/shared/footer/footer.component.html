@@ -15,7 +15,7 @@
       <ul class="flex flex-col md:flex-row md:gap-x-6 gap-y-4">
         @for(link of footerLinks; track $index) {
         <li>
-          <a [href]="link.path">{{ link.name }}</a>
+          <a [routerLink]="link.path">{{ link.name }}</a>
         </li>
         }
       </ul>
