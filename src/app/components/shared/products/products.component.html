@@ -8,7 +8,7 @@
       @for(product of products; track $index) {
       <li
         [ngStyle]="{
-          flexDirection: isDesktop
+          flexDirection: isDesktopWidth
             ? $index % 2 === 0
               ? 'row'
               : 'row-reverse'

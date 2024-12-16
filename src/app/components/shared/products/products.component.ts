@@ -25,7 +25,7 @@ export class ProductsComponent {
   @Input() isLoading: boolean = true;
   private destroy$ = new Subject<void>();
 
-  isDesktop!: boolean;
+  isDesktopWidth!: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -34,7 +34,7 @@ export class ProductsComponent {
       .observe(['(min-width: 1024px)'])
       .pipe(takeUntil(this.destroy$))
       .subscribe((state: BreakpointState) => {
-        this.isDesktop = state.matches;
+        this.isDesktopWidth = state.matches;
       });
   }
 
