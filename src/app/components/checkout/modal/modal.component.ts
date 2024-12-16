@@ -17,6 +17,7 @@ export class ModalComponent {
   items: CartItem[] = [];
   totalPrice: number = 0;
   isModalActive: boolean = false;
+  isLoadingButton: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -41,10 +42,12 @@ export class ModalComponent {
   }
 
   closeModal() {
-    this.modalService.modalState = false;
-    this.overlayService.overlayState = false;
-    this.cartService.clearCart();
+    this.isLoadingButton = true;
     setTimeout(() => {
+      this.isLoadingButton = false;
+      this.modalService.modalState = false;
+      this.overlayService.overlayState = false;
+      this.cartService.clearCart();
       this.router.navigate(['/']);
     }, 500);
   }
