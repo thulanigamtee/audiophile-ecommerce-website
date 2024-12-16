@@ -61,7 +61,8 @@ body {
 }
 
 a {
-  @apply text-[13px] leading-[25px] tracking-[2px] font-bold uppercase text-[var(--color-white)] hover:text-[var(--color-orange)];
+  @apply text-[13px] leading-[25px] tracking-[2px] font-bold uppercase
+  text-[var(--color-white)] hover:text-[var(--color-orange)];
 }
 
 p {
@@ -81,7 +82,9 @@ img {
 }
 
 input {
-  @apply font-[var(--font-manrope)] text-sm border-[1px] border-[#cfcfcf] rounded-lg h-14 text-[#979797] outline-[#d87d4a] placeholder:text-sm placeholder:font-bold placeholder:text-[#979797] -tracking-[0.25px];
+  @apply font-[var(--font-manrope)] text-sm border-[1px] border-[#cfcfcf]
+  rounded-lg h-14 text-[#979797] outline-[#d87d4a] placeholder:text-sm
+  placeholder:font-bold placeholder:text-[#979797] -tracking-[0.25px];
 }
 
 .product-card {
