@@ -12,13 +12,7 @@ body {
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 10;
+  @apply fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.6)] z-10;
 }
 
 .home-page-background {
@@ -27,7 +21,6 @@ body {
   background-color: #1a1919;
   background-position: center;
   background-repeat: no-repeat;
-  height: 600px;
   @media (min-width: 768px) {
     background-image: url("/assets/home/tablet/image-header.jpg");
     height: 729px;
@@ -71,68 +64,36 @@ body {
 }
 
 a {
-  font-size: 13px;
-  line-height: 25px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: var(--color-white);
-  &:hover {
-    color: var(--color-orange);
-  }
+  @apply text-[13px] leading-[25px] tracking-[2px] font-bold uppercase text-[var(--color-white)] hover:text-[var(--color-orange)];
 }
 
 p {
-  font-size: 15px;
-  line-height: 25px;
-  font-weight: 500;
-  color: #979797;
+  @apply text-[15px] leading-[25px] font-medium text-[#979797];
 }
-
 span {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  line-height: 19px;
+  @apply text-sm uppercase tracking-[10px] leading-[19px];
 }
 
 button {
-  font-family: var(--font-manrope);
+  @apply font-[var(--font-manrope)];
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  font-style: italic;
-  vertical-align: middle;
+  // vertical-align: middle;
+  @apply max-w-full h-auto italic;
 }
 
 input {
-  font-family: var(--font-manrope);
-  font-weight: bold;
-  font-size: 14px;
-  border: 1px solid #cfcfcf;
-  border-radius: 8px;
-  height: 56px;
-  color: #979797;
-  outline: #d87d4a;
-  &::placeholder {
-    font-size: 14px;
-    font-weight: bold;
-    color: #979797;
-    letter-spacing: -0.25px;
-  }
+  @apply font-[var(--font-manrope)] text-sm border-[1px] border-[#cfcfcf] rounded-lg h-14 text-[#979797] outline-[#d87d4a] placeholder:text-sm placeholder:font-bold placeholder:text-[#979797] -tracking-[0.25px];
 }
 
 .product-card {
   &:hover {
-    cursor: pointer;
-    transform: scale(0.98);
-    transition: 0.3s ease-in-out;
     a {
       color: var(--color-orange);
     }
   }
+  @apply hover:cursor-pointer hover:scale-95 hover:transition-all hover:duration-[0.3s];
 }
 
 .cart {
