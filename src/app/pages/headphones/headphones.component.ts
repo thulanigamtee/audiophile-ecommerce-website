@@ -12,7 +12,6 @@ import { Product } from '../../models/product.interface';
 })
 export class HeadphonesComponent implements OnInit, OnDestroy {
   headphones: Product[] = [];
-  isLoading: boolean = true;
   private $destroy = new Subject<void>();
 
   constructor(private dataService: DataService) {}
@@ -20,7 +19,6 @@ export class HeadphonesComponent implements OnInit, OnDestroy {
   getHeadphonesData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        this.isLoading = false;
         this.headphones = data.filter(
           (product: Product) => product.category === 'headphones'
         );

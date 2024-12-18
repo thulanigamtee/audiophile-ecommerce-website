@@ -11,7 +11,6 @@ import { Product } from '../../models/product.interface';
 })
 export class EarphonesComponent {
   earphones: Product[] = [];
-  isLoading: boolean = true;
   private $destroy = new Subject<void>();
 
   constructor(private dataService: DataService) {}
@@ -19,7 +18,6 @@ export class EarphonesComponent {
   getEarphonesData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        this.isLoading = false;
         this.earphones = data.filter(
           (product: Product) => product.category === 'earphones'
         );
