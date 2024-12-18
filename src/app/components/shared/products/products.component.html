@@ -13,26 +13,6 @@
         }"
         class="flex flex-col gap-y-8 lg:justify-between lg:items-center"
       >
-        @if(isLoading) {
-        <div class="relative w-full lg:h-[560px] h-[352px] md: lg:w-[50%]">
-          <div
-            class="block w-full h-full bg-gray-200 rounded-lg animate-pulse"
-          ></div>
-        </div>
-        <div
-          class="flex flex-col gap-y-6 lg:text-start lg:w-[445px] items-center lg:items-start"
-        >
-          @if(product.new) {
-          <span class="block w-[40%] h-[15px] bg-gray-200 animate-pulse"></span>
-          }
-          <h2 class="block w-[70%] h-[50px] bg-gray-200 animate-pulse"></h2>
-          <p class="block w-full h-[20px] bg-gray-200 animate-pulse"></p>
-          <p class="block w-full h-[20px] bg-gray-200 animate-pulse"></p>
-          <p class="block w-full h-[20px] bg-gray-200 animate-pulse"></p>
-          <p class="block w-[80%] h-[20px] bg-gray-200 animate-pulse"></p>
-          <div class="block w-40 h-12 bg-gray-200 animate-pulse"></div>
-        </div>
-        } @else {
         <div class="relative w-full lg:h-[560px] lg:w-[50%]">
           <app-pictures [image]="product.categoryImage" />
         </div>
@@ -54,7 +34,6 @@
             [route]="['details', product.slug]"
           />
         </div>
-        }
       </li>
       }
     </ul>
