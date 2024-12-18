@@ -20,7 +20,6 @@ import { Product } from '../../../models/product.interface';
 export class ProductsComponent {
   @Input() products: Product[] = [];
   @Input() heading!: string;
-  @Input() isLoading: boolean = true;
 
   private destroy$ = new Subject<void>();
 
