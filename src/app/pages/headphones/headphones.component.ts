@@ -20,12 +20,10 @@ export class HeadphonesComponent implements OnInit, OnDestroy {
   getHeadphonesData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        // setTimeout(() => {
         this.isLoading = false;
         this.headphones = data.filter(
           (product: Product) => product.category === 'headphones'
         );
-        // }, 500);
       },
     });
   }

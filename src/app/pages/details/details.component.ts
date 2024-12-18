@@ -53,7 +53,6 @@ export class DetailsComponent {
   getProductDetails() {
     this.dataService.data.pipe(takeUntil(this.destroy$)).subscribe({
       next: (data) => {
-        // setTimeout(() => {
         this.isLoading = false;
         this.dataService.productId$.pipe(takeUntil(this.destroy$)).subscribe({
           next: (id) => {
@@ -62,7 +61,6 @@ export class DetailsComponent {
             );
           },
         });
-        // }, 500);
       },
     });
   }

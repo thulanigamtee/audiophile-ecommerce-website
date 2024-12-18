@@ -19,12 +19,10 @@ export class EarphonesComponent {
   getEarphonesData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        // setTimeout(() => {
         this.isLoading = false;
         this.earphones = data.filter(
           (product: Product) => product.category === 'earphones'
         );
-        // }, 500);
       },
     });
   }

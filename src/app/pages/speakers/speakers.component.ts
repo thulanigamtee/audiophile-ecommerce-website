@@ -19,12 +19,10 @@ export class SpeakersComponent {
   getSpeakersData() {
     this.dataService.data.pipe(takeUntil(this.$destroy)).subscribe({
       next: (data) => {
-        // setTimeout(() => {
         this.isLoading = false;
         this.speakers = data.filter(
           (product: Product) => product.category === 'speakers'
         );
-        // }, 500);
       },
     });
   }
