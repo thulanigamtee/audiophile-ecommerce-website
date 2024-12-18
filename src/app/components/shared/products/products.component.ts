@@ -6,6 +6,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 import { PicturesComponent } from '../pictures/pictures.component';
 import { Subject, takeUntil } from 'rxjs';
 import { Product } from '../../../models/product.interface';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-products',
@@ -14,12 +15,14 @@ import { Product } from '../../../models/product.interface';
     CommonModule,
     ProductCardComponent,
     PicturesComponent,
+    LoaderComponent,
   ],
   templateUrl: './products.component.html',
 })
 export class ProductsComponent {
   @Input() products: Product[] = [];
   @Input() heading!: string;
+  @Input() isLoading: boolean = true;
 
   private destroy$ = new Subject<void>();
 
