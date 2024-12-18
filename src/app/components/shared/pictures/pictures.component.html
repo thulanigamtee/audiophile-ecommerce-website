@@ -2,9 +2,5 @@
   <source [srcset]="image.desktop" media="(min-width: 1024px)" />
   <source [srcset]="image.tablet" media="(min-width: 768px)" />
   <source [srcset]="image.mobile" media="(max-width:767px)" />
-  <img
-    [src]="image.mobile"
-    class="rounded-[8px] w-full h-full"
-    loading="lazy"
-  />
+  <img [src]="image.mobile" class="w-full h-full rounded-lg" loading="lazy" />
 </picture>
