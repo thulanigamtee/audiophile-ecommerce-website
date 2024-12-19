@@ -44,8 +44,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/ecommerce-site-using-angular-and-tailwindcss-with-local-storage-MU4W83k4y6)
-- Live Site URL: [Add live site URL here](https://audiophile-ecommerce-website-mu-ten.vercel.app/)
+- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/ecommerce-site-using-angular-and-tailwindcss-with-local-storage-MU4W83k4y6)
+- Live Site URL: [Audiophile Ecommerce](https://audiophile-ecommerce-website-mu-ten.vercel.app/)
 
 ## My process
 
