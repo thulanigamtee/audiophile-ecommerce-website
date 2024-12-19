@@ -30,8 +30,9 @@ Users should be able to:
 - See an order confirmation modal after checking out with an order summary
 - **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
-### Screenshot
+### Screenshots
 ![Screenshot 2024-12-19 at 02-42-34 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/60f94964-eef1-4ef9-8af1-ca393d89af44)
+- Home page
 
 
 
