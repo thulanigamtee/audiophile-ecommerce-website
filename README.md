@@ -31,8 +31,23 @@ Users should be able to:
 - **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
 ### Screenshots
-![Screenshot 2024-12-19 at 02-42-34 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/60f94964-eef1-4ef9-8af1-ca393d89af44)
 - Home page
+![Screenshot 2024-12-19 at 02-42-34 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/60f94964-eef1-4ef9-8af1-ca393d89af44)
+
+- Products page
+![Screenshot 2024-12-19 at 02-44-16 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/bc1a279c-4ad1-4c24-b442-12a614185a5f)
+
+- Product details page
+![Screenshot 2024-12-19 at 02-44-34 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/98098603-fd7b-4eab-a8ee-20e50497d445)
+
+- Cart active state
+![Screenshot 2024-12-19 at 02-45-07 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/20f8721e-f077-46aa-aba3-cabd4bb0827b)
+
+- Checkout page
+![Screenshot 2024-12-19 at 02-47-38 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/f7586804-fad2-44d6-9374-f254ae797846)
+
+- Order confirmation
+![Screenshot 2024-12-19 at 02-47-51 AudiophileEcommerceWebsite](https://github.com/user-attachments/assets/0fff67e9-42b5-4dfd-9917-e8d9d1cab249)
 
 
 
